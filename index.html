@@ -3,155 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>홍기수 포트폴리오</title>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
-body{
-    background:#f8f9fa;
-}
-.hero{
-    background:#212529;
-    color:white;
-    padding:60px;
-    text-align:center;
-}
-.section{
-    margin-top:40px;
-}
-.card{
-    height:100%;
-}
+  body { background: #f8f9fa; }
+  .hero { background: #212529; color: white; padding: 60px; text-align: center; }
+  .section { margin-top: 40px; }
+  .card { height: 100%; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+  
+  /* 하단 전체 학습 기록 전용 그리드 디자인 */
+  .log-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+  .log-card {
+    display: block;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    color: #24292e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  .log-card:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
 </style>
 </head>
 <body>
-
 <div class="hero">
-<h1>홍기수</h1>
-<h4>Infrastructure & Security Portfolio</h4>
-<p>Linux · Network · Security · Python</p>
+  <h1>홍기수</h1>
+  <h4>Infrastructure & Security Portfolio</h4>
+  <p>Linux · Network · Security · Python</p>
 </div>
+<div class="container mb-5">
+  <div class="section">
+    <h2>소개</h2>
+    <p>울산과학대학교 전기전자공학과(반도체응용) 졸업<br>인프라·보안 국비교육 수강<br>Linux / Network / Security 분야 학습</p>
+  </div>
+  
+  <div class="section">
+    <h2>기술 스택</h2>
+    <span class="badge bg-primary">Linux</span>
+    <span class="badge bg-success">Windows Server</span>
+    <span class="badge bg-danger">Cisco</span>
+    <span class="badge bg-dark">GNS3</span>
+    <span class="badge bg-warning text-dark">pfSense</span>
+    <span class="badge bg-info text-dark">Python</span>
+    <span class="badge bg-secondary">Wazuh</span>
+    <span class="badge bg-primary">Snort</span>
+  </div>
+  
+  <div class="section">
+    <h2>대표 프로젝트</h2>
+    <div class="row">
+      <div class="col-md-3 mb-3"><div class="card"><div class="card-body"><h5>Cisco</h5><a href="2026-03-24-cisco.html" class="btn btn-sm btn-outline-primary mt-2">보기</a></div></div></div>
+      <div class="col-md-3 mb-3"><div class="card"><div class="card-body"><h5>Ubuntu Monitoring</h5><a href="2026-04-28-ubuntu-monitoring.html" class="btn btn-sm btn-outline-success mt-2">보기</a></div></div></div>
+      <div class="col-md-3 mb-3"><div class="card"><div class="card-body"><h5>DVWA</h5><a href="2026-06-23-dvwa-web-hacking.html" class="btn btn-sm btn-outline-danger mt-2">보기</a></div></div></div>
+      <div class="col-md-3 mb-3"><div class="card"><div class="card-body"><h5>Malware Analysis</h5><a href="2026-07-15-static-malware-analysis.html" class="btn btn-sm btn-outline-dark mt-2">보기</a></div></div></div>
+    </div>
+  </div>
 
-<div class="container">
-
-<div class="section">
-<h2>소개</h2>
-
-<p>
-울산과학대학교 전기전자공학과(반도체응용) 졸업<br>
-인프라·보안 국비교육 수강<br>
-Linux / Network / Security 분야 학습
-</p>
+  <div class="section">
+    <h2>전체 학습 기록</h2>
+    <ul class="log-grid">
+      <li><a href="2026-03-24-cisco.html" class="log-card">2026-03-24 | CISCO</a></li>
+      <li><a href="2026-03-25-cisco.html" class="log-card">2026-03-25 | CISCO</a></li>
+      <li><a href="2026-03-26-cisco.html" class="log-card">2026-03-26 | CISCO</a></li>
+      <li><a href="2026-03-27-cisco.html" class="log-card">2026-03-27 | CISCO</a></li>
+      <li><a href="2026-03-30-cisco.html" class="log-card">2026-03-30 | CISCO</a></li>
+      <li><a href="2026-03-31-cisco-vpn.html" class="log-card">2026-03-31 | CISCO VPN</a></li>
+      <li><a href="2026-04-01-virtualbox.html" class="log-card">2026-04-01 | VIRTUALBOX</a></li>
+      <li><a href="2026-04-02-virtualbox.html" class="log-card">2026-04-02 | VIRTUALBOX</a></li>
+      <li><a href="2026-04-03-virtualbox-infra.html" class="log-card">2026-04-03 | VIRTUALBOX INFRA</a></li>
+      <li><a href="2026-04-06-virtualbox-log.html" class="log-card">2026-04-06 | VIRTUALBOX LOG</a></li>
+      <li><a href="2026-04-07-windows-server.html" class="log-card">2026-04-07 | WINDOWS SERVER</a></li>
+      <li><a href="2026-04-08-windows-linux-integration.html" class="log-card">2026-04-08 | WINDOWS LINUX INTEGRATION</a></li>
+      <li><a href="2026-04-09-mariadb-replication.html" class="log-card">2026-04-09 | MARIADB REPLICATION</a></li>
+      <li><a href="2026-04-28-ubuntu-monitoring.html" class="log-card">2026-04-28 | UBUNTU MONITORING</a></li>
+      <li><a href="2026-04-29-gns3-firewall.html" class="log-card">2026-04-29 | GNS3 FIREWALL</a></li>
+      <li><a href="2026-05-06-gns3-asa-firewall.html" class="log-card">2026-05-06 | GNS3 ASA FIREWALL</a></li>
+      <li><a href="2026-05-07-pfsense-openvpn.html" class="log-card">2026-05-07 | PFSENSE OPENVPN</a></li>
+      <li><a href="2026-05-11-snort-ids-setup.html" class="log-card">2026-05-11 | SNORT IDS SETUP</a></li>
+      <li><a href="2026-05-12-ids-and-pentesting.html" class="log-card">2026-05-12 | IDS AND PENTESTING</a></li>
+      <li><a href="2026-05-13-kali-reverse-shell.html" class="log-card">2026-05-13 | KALI REVERSE SHELL</a></li>
+      <li><a href="2026-05-14-kali-pentesting.html" class="log-card">2026-05-14 | KALI PENTESTING</a></li>
+      <li><a href="2026-05-15-kali-evilbox-pentesting.html" class="log-card">2026-05-15 | KALI EVILBOX PENTESTING</a></li>
+      <li><a href="2026-05-18-shell-scripting.html" class="log-card">2026-05-18 | SHELL SCRIPTING</a></li>
+      <li><a href="2026-05-19-kali-graylog-webshell.html" class="log-card">2026-05-19 | KALI GRAYLOG WEBSHELL</a></li>
+      <li><a href="2026-05-20-wazuh-siem-setup.html" class="log-card">2026-05-20 | WAZUH SIEM SETUP</a></li>
+      <li><a href="2026-05-21-python-infra-automation.html" class="log-card">2026-05-21 | PYTHON INFRA AUTOMATION</a></li>
+      <li><a href="2026-06-23-dvwa-web-hacking.html" class="log-card">2026-06-23 | DVWA WEB HACKING</a></li>
+      <li><a href="2026-06-24-dvwa-sqlmap.html" class="log-card">2026-06-24 | DVWA SQLMAP</a></li>
+      <li><a href="2026-06-25-bwapp-burpsuite.html" class="log-card">2026-06-25 | BWAPP BURPSUITE</a></li>
+      <li><a href="2026-06-26-bwapp-xss.html" class="log-card">2026-06-26 | BWAPP XSS</a></li>
+      <li><a href="2026-06-29-penetration-testing.html" class="log-card">2026-06-29 | PENETRATION TESTING</a></li>
+      <li><a href="2026-06-30-web-vuln-analysis.html" class="log-card">2026-06-30 | WEB VULN ANALYSIS</a></li>
+      <li><a href="2026-07-01-webgoat-waf.html" class="log-card">2026-07-01 | WEBGOAT WAF</a></li>
+      <li><a href="2026-07-02-user-agent-obfuscation.html" class="log-card">2026-07-02 | USER AGENT OBFUSCATION</a></li>
+      <li><a href="2026-07-06-web-vuln-analysis.html" class="log-card">2026-07-06 | WEB VULN ANALYSIS</a></li>
+      <li><a href="2026-07-07-wordpress-killchain.html" class="log-card">2026-07-07 | WORDPRESS KILLCHAIN</a></li>
+      <li><a href="2026-07-09-recon-scanning.html" class="log-card">2026-07-09 | RECON SCANNING</a></li>
+      <li><a href="2026-07-13-metasploit-vnc-pentest.html" class="log-card">2026-07-13 | METASPLOIT VNC PENTEST</a></li>
+      <li><a href="2026-07-14-flare-vm-setup.html" class="log-card">2026-07-14 | FLARE VM SETUP</a></li>
+      <li><a href="2026-07-15-static-malware-analysis.html" class="log-card">2026-07-15 | STATIC MALWARE ANALYSIS</a></li>
+      <li><a href="2026-07-20-wazuh-siem-setup.html" class="log-card">2026-07-20 | WAZUH SIEM SETUP</a></li>
+    </ul>
+  </div>
 </div>
-
-<div class="section">
-<h2>기술 스택</h2>
-
-<span class="badge bg-primary">Linux</span>
-<span class="badge bg-success">Windows Server</span>
-<span class="badge bg-danger">Cisco</span>
-<span class="badge bg-dark">GNS3</span>
-<span class="badge bg-warning text-dark">pfSense</span>
-<span class="badge bg-info text-dark">Python</span>
-<span class="badge bg-secondary">Wazuh</span>
-<span class="badge bg-primary">Snort</span>
-</div>
-
-<div class="section">
-<h2>대표 프로젝트</h2>
-
-<div class="row">
-
-<div class="col-md-3 mb-3">
-<div class="card">
-<div class="card-body">
-<h5>Cisco</h5>
-<a href="2026-03-24-cisco.html">보기</a>
-</div>
-</div>
-</div>
-
-<div class="col-md-3 mb-3">
-<div class="card">
-<div class="card-body">
-<h5>Ubuntu Monitoring</h5>
-<a href="2026-04-28-ubuntu-monitoring.html">보기</a>
-</div>
-</div>
-</div>
-
-<div class="col-md-3 mb-3">
-<div class="card">
-<div class="card-body">
-<h5>DVWA</h5>
-<a href="2026-06-23-dvwa-web-hacking.html">보기</a>
-</div>
-</div>
-</div>
-
-<div class="col-md-3 mb-3">
-<div class="card">
-<div class="card-body">
-<h5>Malware Analysis</h5>
-<a href="2026-07-15-static-malware-analysis.html">보기</a>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="section">
-<h2>전체 학습 기록</h2>
-<ul>
-<li><a href="2026-03-24-cisco.html">2026-03-24-cisco.html</a></li>
-<li><a href="2026-03-25-cisco.html">2026-03-25-cisco.html</a></li>
-<li><a href="2026-03-26-cisco.html">2026-03-26-cisco.html</a></li>
-<li><a href="2026-03-27-cisco.html">2026-03-27-cisco.html</a></li>
-<li><a href="2026-03-30-cisco.html">2026-03-30-cisco.html</a></li>
-<li><a href="2026-03-31-cisco-vpn.html">2026-03-31-cisco-vpn.html</a></li>
-<li><a href="2026-04-01-virtualbox.html">2026-04-01-virtualbox.html</a></li>
-<li><a href="2026-04-02-virtualbox.html">2026-04-02-virtualbox.html</a></li>
-<li><a href="2026-04-03-virtualbox-infra.html">2026-04-03-virtualbox-infra.html</a></li>
-<li><a href="2026-04-06-virtualbox-log.html">2026-04-06-virtualbox-log.html</a></li>
-<li><a href="2026-04-07-windows-server.html">2026-04-07-windows-server.html</a></li>
-<li><a href="2026-04-08-windows-linux-integration.html">2026-04-08-windows-linux-integration.html</a></li>
-<li><a href="2026-04-09-mariadb-replication.html">2026-04-09-mariadb-replication.html</a></li>
-<li><a href="2026-04-28-ubuntu-monitoring.html">2026-04-28-ubuntu-monitoring.html</a></li>
-<li><a href="2026-04-29-gns3-firewall.html">2026-04-29-gns3-firewall.html</a></li>
-<li><a href="2026-05-06-gns3-asa-firewall.html">2026-05-06-gns3-asa-firewall.html</a></li>
-<li><a href="2026-05-07-pfsense-openvpn.html">2026-05-07-pfsense-openvpn.html</a></li>
-<li><a href="2026-05-11-snort-ids-setup.html">2026-05-11-snort-ids-setup.html</a></li>
-<li><a href="2026-05-12-ids-and-pentesting.html">2026-05-12-ids-and-pentesting.html</a></li>
-<li><a href="2026-05-13-kali-reverse-shell.html">2026-05-13-kali-reverse-shell.html</a></li>
-<li><a href="2026-05-14-kali-pentesting.html">2026-05-14-kali-pentesting.html</a></li>
-<li><a href="2026-05-15-kali-evilbox-pentesting.html">2026-05-15-kali-evilbox-pentesting.html</a></li>
-<li><a href="2026-05-18-shell-scripting.html">2026-05-18-shell-scripting.html</a></li>
-<li><a href="2026-05-19-kali-graylog-webshell.html">2026-05-19-kali-graylog-webshell.html</a></li>
-<li><a href="2026-05-20-wazuh-siem-setup.html">2026-05-20-wazuh-siem-setup.html</a></li>
-<li><a href="2026-05-21-python-infra-automation.html">2026-05-21-python-infra-automation.html</a></li>
-<li><a href="2026-06-23-dvwa-web-hacking.html">2026-06-23-dvwa-web-hacking.html</a></li>
-<li><a href="2026-06-24-dvwa-sqlmap.html">2026-06-24-dvwa-sqlmap.html</a></li>
-<li><a href="2026-06-25-bwapp-burpsuite.html">2026-06-25-bwapp-burpsuite.html</a></li>
-<li><a href="2026-06-26-bwapp-xss.html">2026-06-26-bwapp-xss.html</a></li>
-<li><a href="2026-06-29-penetration-testing.html">2026-06-29-penetration-testing.html</a></li>
-<li><a href="2026-06-30-web-vuln-analysis.html">2026-06-30-web-vuln-analysis.html</a></li>
-<li><a href="2026-07-01-webgoat-waf.html">2026-07-01-webgoat-waf.html</a></li>
-<li><a href="2026-07-02-user-agent-obfuscation.html">2026-07-02-user-agent-obfuscation.html</a></li>
-<li><a href="2026-07-06-web-vuln-analysis.html">2026-07-06-web-vuln-analysis.html</a></li>
-<li><a href="2026-07-07-wordpress-killchain.html">2026-07-07-wordpress-killchain.html</a></li>
-<li><a href="2026-07-09-recon-scanning.html">2026-07-09-recon-scanning.html</a></li>
-<li><a href="2026-07-13-metasploit-vnc-pentest.html">2026-07-13-metasploit-vnc-pentest.html</a></li>
-<li><a href="2026-07-14-flare-vm-setup.html">2026-07-14-flare-vm-setup.html</a></li>
-<li><a href="2026-07-15-static-malware-analysis.html">2026-07-15-static-malware-analysis.html</a></li>
-<li><a href="2026-07-20-wazuh-siem-setup.html">2026-07-20-wazuh-siem-setup.html</a></li>
-<li><a href="README.html">README.html</a></li>
-</ul>
-
-</div>
-</div>
-
 </body>
 </html>
