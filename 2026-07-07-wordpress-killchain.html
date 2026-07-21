@@ -1,0 +1,81 @@
+<h1
+id="모의해킹-인프라-보안-수업---워드프레스-타겟-정보-수집-및-rce-킬-체인-실무">[모의해킹]
+인프라 보안 수업 - 워드프레스 타겟 정보 수집 및 RCE 킬 체인 실무</h1>
+<p><strong>날짜:</strong> 2026년 7월 7일 <strong>주제:</strong> Kali,
+Nmap, Dirb, Hydra, WordPress, RCE, Kill Chain</p>
+<hr />
+<h2 id="오늘-배운-내용-상세-요약">📝 오늘 배운 내용 상세 요약</h2>
+<h3 id="대상-서버-정보-수집-information-gathering">1. 대상 서버 정보
+수집 (Information Gathering)</h3>
+<ul>
+<li><strong>네트워크 스캔:</strong> <code>nmap</code>을 활용하여 타겟
+서버(192.168.55.110)의 오픈 포트(80/HTTP) 및 구동 중인 서비스(Apache,
+WordPress 4.7)를 식별했습니다.</li>
+<li><strong>디렉터리 브루트포싱:</strong> <code>dirb</code>를 통해
+<code>/wp-admin/</code>, <code>/wp-content/</code> 등 주요 워드프레스
+디렉터리 구조 및 접근 가능 여부를 확인했습니다.</li>
+<li><strong>도메인 매핑:</strong> <code>/etc/hosts</code> 파일 수정을
+통해 타겟 IP와 도메인(<code>vulnwp</code>) 매핑 설정을
+진행했습니다.</li>
+</ul>
+<h3 id="관리자-계정-탈취-credential-attack">2. 관리자 계정 탈취
+(Credential Attack)</h3>
+<ul>
+<li><strong>딕셔너리 어택(Dictionary Attack):</strong>
+<code>Hydra</code> 도구를 사용하여 HTTP-POST-FORM 방식을 이용해 실패
+메시지(<code>비밀번호 틀립니다.</code>)를 기준으로 성공 여부를 판별하여
+관리자 계정(admin / 1234)을 탈취했습니다.</li>
+<li><strong>패킷 분석:</strong> Burp Suite를 활용하여
+<code>wp-login.php</code> 로그인 과정의 POST 패킷 구조(파라미터 등)를
+분석했습니다.</li>
+</ul>
+<h3 id="웹쉘-업로드-및-원격-코드-실행-rce-exploitation">3. 웹쉘 업로드
+및 원격 코드 실행 (RCE &amp; Exploitation)</h3>
+<ul>
+<li><strong>백도어 작동 확인:</strong> 파일 쓰기 권한이 취약한
+플러그인(<code>akismet.php</code>) 경로를 악용하여 백도어(웹쉘) 작동을
+확인했습니다.</li>
+<li><strong>원격 명령어 실행:</strong> <code>curl</code> 명령어를 통해
+파라미터(<code>x=passthru&amp;y=명령어</code>)를 전달하여 서버 시스템
+명령어를 원격으로 실행했습니다.</li>
+<li><strong>내부 시스템 장악:</strong> <code>uname -a</code> (시스템
+정보), <code>cat /etc/passwd</code> (계정 정보),
+<code>wp-config.php</code> (DB 연결 정보 등 주요 설정) 파일을 탈취하며
+내부 시스템을 장악했습니다.</li>
+</ul>
+<hr />
+<h2 id="오늘의-회고-및-실무-다짐">💭 오늘의 회고 및 실무 다짐</h2>
+<h3 id="배운-점">📌 배운 점</h3>
+<ul>
+<li>정보 수집부터 권한 탈취, 내부 침투로 이어지는 모의해킹의 킬
+체인(Kill Chain) 흐름을 체계적으로 이해하게 되었습니다.</li>
+<li><code>Hydra</code>를 사용할 때 서버의 응답 메시지(로그인 실패
+문자열)를 조건으로 주어 성공 여부를 필터링하는 원리를 깨달았습니다.</li>
+<li>PHP로 작성된 단순한 파라미터 전달 코드가 서버 단에서 어떻게 치명적인
+시스템 명령어 실행(RCE)으로 이어지는지 실질적인 위험성을
+체감했습니다.</li>
+</ul>
+<h3 id="어려운-점-및-개선할-점">🚨 어려운 점 및 개선할 점</h3>
+<ul>
+<li><code>nmap</code>, <code>dirb</code>, <code>hydra</code>,
+<code>wpscan</code> 등 여러 도구의 수많은 옵션(플래그)들을 상황에 맞게
+정확히 조합하고 적용하는 것이 아직 익숙하지 않습니다.</li>
+<li>패킷을 분석하고 페이로드를 작성할 때 HTTP 프로토콜 구조와 인코딩
+방식에 대한 더 깊은 이해가 필요함을 느꼈습니다.</li>
+</ul>
+<h3 id="액션-플랜">💡 액션 플랜</h3>
+<ul>
+<li>오늘 사용한 주요 공격 도구들의 핵심 명령어와 옵션들을 나만의 치트
+시트(Cheat Sheet)로 노션에 따로 정리해 두겠습니다.</li>
+<li>웹쉘이 동작하는 원리를 더 명확히 이해하기 위해 PHP 기초 문법과
+시스템 함수(<code>passthru</code>, <code>system</code>,
+<code>exec</code> 등)를 살펴보겠습니다.</li>
+</ul>
+<h3 id="함께-나누고-싶은-점">🤝 함께 나누고 싶은 점</h3>
+<ul>
+<li>실습 과정을 리뷰하며, 각자 도구 사용 시 발생했던 오류(예: WPScan
+에러 등)나 다른 방식의 접근법이 있었는지 공유해 보고 싶습니다.</li>
+</ul>
+<hr />
+<p><strong>📚 참고자료</strong> * Nmap, Dirb, Hydra, WPScan 공식 매뉴얼
+및 명령어 가이드 * 워드프레스 4.7 구버전 관련 주요 CVE 취약점 문서</p>

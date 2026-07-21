@@ -1,0 +1,98 @@
+<h1
+id="웹-모의해킹-인프라-보안-수업---http-헤더-변조-및-xssreflectedstored-취약점-분석">[웹
+모의해킹] 인프라 보안 수업 - HTTP 헤더 변조 및 XSS(Reflected/Stored)
+취약점 분석</h1>
+<p><strong>날짜:</strong> 2026년 6월 26일<br />
+<strong>주제:</strong> bee-box, Kali Linux, bWAPP, Burp Suite, XSS,
+CVE-2010-4480</p>
+<hr />
+<h2 id="오늘-배운-내용-상세-요약">📝 오늘 배운 내용 상세 요약</h2>
+<h3 id="http-헤더-조작을-통한-reflected-xss-분석">1. HTTP 헤더 조작을
+통한 Reflected XSS 분석</h3>
+<ul>
+<li><strong>실습 도구:</strong> Burp Suite (Proxy/Intercept 기능)</li>
+<li><strong>상세 내용:</strong> 브라우저 화면에 노출되는 일반적인
+폼(Form) 입력창뿐만 아니라, 백그라운드에서 서버로 전송되는 HTTP Request
+헤더(Referer, Custom Header) 값을 가로채어 악성
+페이로드(<code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code>)를
+주입했습니다.</li>
+<li><strong>검증 결과:</strong> 서버가 사용자 요청 헤더 값을 적절한
+검증이나 인코딩 없이 동적 웹 페이지에 렌더링할 경우, 스크립트가 실행되어
+세션 탈취(Session Hijacking) 공격이 가능함을 확인했습니다.</li>
+</ul>
+<h3 id="stored-xss-메커니즘-및-백엔드-db-연동-분석">2. Stored XSS
+메커니즘 및 백엔드 DB 연동 분석</h3>
+<ul>
+<li><strong>실습 도구:</strong> bWAPP (Blog 입력 폼), SQLiteManager</li>
+<li><strong>상세 내용:</strong> 블로그 게시판 입력 폼을 통해 악성 HTML
+및 스크립트 태그를 전송한 후, 프론트엔드가 아닌 백엔드
+인프라(SQLiteManager)에 직접 접근하여 데이터베이스의 상태를
+점검했습니다.</li>
+<li><strong>검증 결과:</strong> 서버 측 방어 로직 부재로 인해, 공격
+페이로드가 필터링 없이 원문 그대로 데이터베이스
+테이블(<code>t1</code>)에 영구 저장됨을 물리적으로 확인했습니다. 이로
+인해 게시글을 열람하는 불특정 다수에게 악성 스크립트가 실행되는 구조적
+취약점을 입증했습니다.</li>
+</ul>
+<h3 id="day-취약점-인프라-모의-침투-cve-2010-4480">3. 1-Day 취약점
+인프라 모의 침투 (CVE-2010-4480)</h3>
+<ul>
+<li><strong>실습 대상:</strong> phpMyAdmin 2.11.3 (구버전 솔루션)</li>
+<li><strong>상세 내용:</strong> 널리 사용되는 데이터베이스 관리 솔루션의
+<code>error.php</code>에서 발생하는 BBCode 태그 유효성 검증 누락 취약점
+테스트를 진행했습니다.</li>
+<li><strong>검증 결과:</strong> 애플리케이션 자체의 결함뿐만 아니라,
+인프라를 구성하는 서드파티(Third-party) 솔루션의 구버전 취약점을
+악용하여 DB 관리자 콘솔 내에서 관리자 권한을 위협할 수 있음을
+확인했습니다.</li>
+</ul>
+<hr />
+<h2 id="오늘의-회고-및-실무-다짐">💭 오늘의 회고 및 실무 다짐</h2>
+<h3 id="배운-점">📌 배운 점</h3>
+<ul>
+<li><strong>’신뢰할 수 없는 입력값(Untrusted Input)’의 확장:</strong>
+취약점은 눈에 보이는 URL 파라미터나 입력 폼에서만 발생하는 것이 아니라,
+HTTP 패킷 내의 모든 데이터(헤더, 쿠키 등)가 공격 벡터가 될 수 있음을
+직접 패킷을 뜯어보며 체감했습니다.</li>
+<li><strong>데이터 흐름의 전체 스택 이해:</strong> 프론트엔드에서의
+스크립트 동작(XSS)만 확인하는 것을 넘어, 악성 데이터가 백엔드 로직을
+거쳐 DB에 어떻게 적재되는지 전체 라이프사이클을 추적하는 분석 역량을
+길렀습니다.</li>
+</ul>
+<h3 id="트러블슈팅-어려운-점-및-개선할-점">🚨 트러블슈팅 (어려운 점 및
+개선할 점)</h3>
+<ul>
+<li>프록시 도구를 활용하여 HTTP 통신 규격을 실시간으로 변조하는
+과정에서, 패킷의 구조와 각 헤더의 역할을 정확히 파악하고 대응하는 데
+다소 시간이 소요되었습니다. 네트워크 프로토콜에 대한 구조적 이해도를 더
+높여야겠습니다.</li>
+<li>DB에 저장된 페이로드를 역추적하는 과정에서 백엔드 환경 설정에 따라
+결과가 달라질 수 있음을 보았습니다. 웹 서버와 DB 간의 데이터 처리
+아키텍처를 좀 더 깊이 파고들 필요성을 느꼈습니다.</li>
+</ul>
+<h3 id="실무를-위한-액션-플랜">💡 실무를 위한 액션 플랜</h3>
+<ul>
+<li>진행 중인 보안 포털 프로젝트의 백엔드(PHP) 개발 시, 폼 데이터뿐만
+아니라 수집되는 모든 HTTP 데이터에 대해 <code>htmlspecialchars()</code>
+등의 출력값 인코딩(Entity Encoding) 함수를 의무적으로 적용하여 시큐어
+코딩 원칙을 준수하겠습니다.</li>
+<li>포털 내 로그인 유지 및 권한 관리를 위한 세션 쿠키 발급 시,
+<code>HttpOnly</code> 속성을 강제하여 XSS 공격을 통한 세션 하이재킹을
+원천 차단하는 로직을 추가하겠습니다.</li>
+</ul>
+<h3 id="함께-나누고-싶은-점">🤝 함께 나누고 싶은 점</h3>
+<ul>
+<li>팀원들과의 코드 병합(Merge) 및 리뷰 세션에서 “눈에 보이지 않는 패킷
+데이터도 언제든 조작될 수 있다”는 점을 오늘 도출한 HTTP 헤더 변조
+결과물과 함께 공유하고, 프로젝트 전반에 걸친 공통 입력값
+검증(Sanitization) 규칙을 수립하자고 제안할 계획입니다.</li>
+</ul>
+<hr />
+<p><strong>📚 참고자료</strong> * 실습 인프라 및 환경: Kali Linux, bWAPP
+(Buggy Web Application) * 분석 및 디버깅 도구: Burp Suite Community
+Edition (Proxy), SQLiteManager * 보안 위협 참조: OWASP Top 10
+(Injection, Cross-Site Scripting), CVE-2010-4480 (phpMyAdmin
+Vulnerability)</p>
+<p><strong>🔍 내일 학습 예정</strong> * 웹 애플리케이션 방화벽(WAF) 우회
+원리 분석 및 SQL 인젝션(SQL Injection)을 통한 데이터베이스 인증 우회
+기법 실습</p>

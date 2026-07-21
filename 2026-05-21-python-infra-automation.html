@@ -1,0 +1,108 @@
+<h1
+id="인프라-자동화-인프라-보안-수업---파이썬-기반-서버네트워크-모니터링-스크립트-작성">[인프라
+자동화] 인프라 보안 수업 - 파이썬 기반 서버/네트워크 모니터링 스크립트
+작성</h1>
+<p><strong>날짜:</strong> 2026년 5월 21일 <strong>주제:</strong> Python
+가상환경(venv), 인프라 자동화 스크립트(os, subprocess, psutil), GUI
+기초(Tkinter)</p>
+<hr />
+<h2 id="오늘-배운-내용-상세-요약">📝 오늘 배운 내용 상세 요약</h2>
+<h3 id="파이썬-가상환경venv-및-패키지-관리-트러블슈팅">1. 파이썬
+가상환경(venv) 및 패키지 관리 트러블슈팅</h3>
+<ul>
+<li><strong>가상환경 구축:</strong> <code>python3 -m venv</code>
+명령어를 통해 프로젝트별로 독립적인 파이썬 가상환경을 구축하는 방법을
+학습했습니다.</li>
+<li><strong>패키지 충돌 대응:</strong> Ubuntu 환경에서 <code>pip</code>
+설치 시 발생하는 <code>externally-managed-environment</code> (외부 관리
+환경) 정책 에러에 대응하는 방법을 익혔습니다.</li>
+<li><strong>권한 및 의존성 해결:</strong> <code>apt</code> 패키지
+관리자를 이용해 안전하게 패키지(<code>python3.12-venv</code>,
+<code>python3-psutil</code>)를 설치하고, <code>chown</code> 명령어를
+이용해 디렉터리 권한 관리를 수행하며 의존성 문제를 해결했습니다.</li>
+</ul>
+<h3 id="인프라-운영-및-자동화-스크립트-작성-핵심">2. 인프라 운영 및
+자동화 스크립트 작성 (핵심)</h3>
+<ul>
+<li><strong>기본 제어문 활용 (<code>basic.py</code>):</strong> 변수,
+리스트, 조건문(if-elif), 반복문(for) 등 파이썬의 기본 문법을 활용하여
+기초적인 서버 점검 로직을 작성했습니다.</li>
+<li><strong>파일 자동 분류 (<code>file_op.py</code>):</strong>
+<code>os</code>, <code>shutil</code> 모듈을 사용하여 폴더를 자동으로
+생성하고, 흩어진 로그 및 텍스트 파일을 확장자별로 분류하여 이동/정리하는
+자동화 스크립트를 구현했습니다.</li>
+<li><strong>네트워크 상태 점검
+(<code>network_checker.py</code>):</strong> <code>subprocess</code>
+모듈을 통해 파이썬 스크립트 내에서 리눅스 <code>ping</code> 명령어를
+직접 호출하고, 대상 서버들의 네트워크 통신 상태(성공/실패)를 실시간으로
+모니터링하는 로직을 작성했습니다.</li>
+<li><strong>시스템 리소스 모니터링
+(<code>resource_monitor.py</code>):</strong> <code>psutil</code>
+라이브러리를 활용하여 서버의 실시간 CPU 및 메모리 사용량을 체크하고,
+임계치(80%)를 초과할 경우 경고 메시지를 발생시키는 실무형 모니터링 툴을
+개발했습니다.</li>
+<li><strong>백업 자동화 (<code>backup_manager.py</code>):</strong>
+<code>tarfile</code>, <code>datetime</code>, <code>os</code> 모듈을
+조합하여 작업 디렉터리를 날짜 기반으로 자동 압축 및 백업하고,
+<code>time</code> 모듈을 활용해 30일이 지난 오래된 백업 파일은 자동
+삭제하여 디스크 공간을 확보하는 유지보수 스크립트를 구현했습니다.</li>
+</ul>
+<h3 id="파이썬-gui-프로그래밍-기초-tkinter">3. 파이썬 GUI 프로그래밍
+기초 (Tkinter)</h3>
+<ul>
+<li><strong>GUI 창 구성:</strong> <code>tkinter</code> 모듈을 사용하여
+윈도우 메모장 스타일의 직관적인 GUI 창(<code>basic.py</code>)을 구성해
+보았습니다.</li>
+<li><strong>위젯 연동:</strong> 윈도우 타이틀 및 크기 설정, 상단
+메뉴바(파일, 편집, 서식 등) 구성, 그리고 텍스트 위젯과 스크롤바를
+연동하는 실습을 진행했습니다.</li>
+</ul>
+<hr />
+<h2 id="오늘의-회고-및-실무-다짐">💭 오늘의 회고 및 실무 다짐</h2>
+<h3 id="배운-점">📌 배운 점</h3>
+<ul>
+<li>파이썬이 단순한 프로그래밍 언어를 넘어, <strong>OS와 상호작용하며
+인프라 관리에 얼마나 강력하게 쓰일 수 있는지</strong> 직접 코드를 짜며
+체감했습니다.</li>
+<li>특히 <code>psutil</code>과 <code>subprocess</code>를 활용한 리소스
+및 네트워크 상태 점검 로직은 향후 <strong>보안 인프라 운영 및 네트워크
+관제(NOC)</strong> 실무에 직접적으로 응용할 수 있는 아주 강력하고 유용한
+스킬임을 확신했습니다.</li>
+</ul>
+<h3 id="트러블슈팅-어려운-점-및-개선할-점">🚨 트러블슈팅 (어려운 점 및
+개선할 점)</h3>
+<ul>
+<li><strong>환경 및 권한 충돌:</strong> 리눅스(우분투) 환경에서
+<code>pip</code>로 패키지를 설치할 때 발생하는 의존성 문제 및
+권한(<code>Permission denied</code>) 에러를 마주하여 원인을 찾고
+트러블슈팅하는 데 다소 시간이 소요되었습니다.</li>
+<li><strong>가상환경과 sudo의 혼선:</strong> 가상환경이 활성화된
+상태에서 <code>sudo</code> 권한으로 스크립트를 실행할 때, 환경 변수나
+실행 경로에 혼선이 생겨 모듈을 찾지 못하는 문제를 겪으며 리눅스 권한
+체계의 복잡성을 느꼈습니다.</li>
+</ul>
+<h3 id="실무를-위한-액션-플랜">💡 실무를 위한 액션 플랜</h3>
+<ul>
+<li>리눅스 시스템의 패키지 관리자(<code>apt</code>)와 파이썬 가상환경
+패키지 관리자(<code>pip</code>)의 역할 및 차이점을 명확히 복습하여 혼용
+시 발생하는 문제를 예방하겠습니다.</li>
+<li>파일 및 디렉터리 소유권(<code>chown</code>), 실행 권한 등 리눅스
+시스템의 기본 권한(Permission) 체계를 백지상태에서도 설명할 수 있도록
+다시 한번 탄탄하게 정리하겠습니다.</li>
+</ul>
+<h3 id="함께-나누고-싶은-점">🤝 함께 나누고 싶은 점</h3>
+<blockquote>
+<p><strong>“환경 충돌 시 무작정 우회하지 말자!”</strong></p>
+</blockquote>
+<p>최신 리눅스 환경에서 <code>pip install</code> 사용 시 환경 충돌
+에러가 발생한다면 무작정 우회
+명령어(<code>--break-system-packages</code> 등)를 쓰기보다,
+<code>sudo apt install python3-&lt;패키지명&gt;</code>을 활용하거나
+가상환경 내부의 디렉터리 권한을 올바르게 부여하는 것이 시스템 전체의
+안정성을 지키는 올바른 길이라는 점을 팀원들과 꼭 공유하고 싶습니다.</p>
+<hr />
+<p><strong>📚 참고자료</strong> * Python 공식 문서: <code>os</code>,
+<code>shutil</code>, <code>subprocess</code>, <code>tarfile</code>,
+<code>datetime</code> 모듈 * <code>psutil</code> (Python system and
+process utilities) 공식 가이드 * Tkinter GUI 프로그래밍 기초
+레퍼런스</p>

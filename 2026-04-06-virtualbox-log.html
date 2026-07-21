@@ -1,0 +1,64 @@
+<h1
+id="virtualboxlinux-인프라-보안-수업---rsyslog-로그-중앙-집중화-및-loganalyzer-시각화">[VirtualBox/Linux]
+인프라 보안 수업 - rsyslog 로그 중앙 집중화 및 LogAnalyzer 시각화</h1>
+<p><strong>날짜:</strong> 2026년 4월 6일<br />
+<strong>주제:</strong> VirtualBox, 로그 관리(rsyslog), DB 연동, 웹
+시각화(LogAnalyzer)</p>
+<hr />
+<h2 id="오늘-배운-내용-요약">📝 오늘 배운 내용 요약</h2>
+<h3 id="리눅스-로그-관리의-기초-rsyslog-서버-클라이언트-구축">1. 리눅스
+로그 관리의 기초, rsyslog 서버-클라이언트 구축</h3>
+<ul>
+<li><strong>로컬 로그 확인:</strong> <code>/var/log/messages</code>
+파일을 통해 시스템 전반적인 로그를 확인하는 법 학습</li>
+<li><strong>로그 서버 구성:</strong> Server 측에서 514번 포트(TCP/UDP)를
+개방하여 로그 수신 대기 상태 구성</li>
+<li><strong>원격 로그 전송:</strong> Client 측 설정 파일에
+<code>*.* @192.168.55.84:514</code> (UDP 전송) 구문을 추가하여 모든
+시스템 로그를 원격 서버로 전송하도록 설정 &gt; <strong>💡 멘토링 피드백
+(변유송 멘토님):</strong> “TCP 전송이 목적이라면 <code>@</code> 대신
+<code>@@</code>를 쓰셔야 맞습니다. 설정 시 어떤 프로토콜을 사용했는지
+명확히 구분하여 작성하면 좋습니다.”</li>
+</ul>
+<h3 id="db-연동-및-시각화-loganalyzer">2. DB 연동 및 시각화
+(LogAnalyzer)</h3>
+<ul>
+<li><strong>로그 DB화:</strong> <code>rsyslog-mysql</code> 패키지 설치
+후 제공되는 스키마(<code>mysql-createDB.sql</code>)를 활용하여 Syslog
+데이터를 저장할 데이터베이스 구축</li>
+<li><strong>웹 시각화:</strong> LogAnalyzer 웹 소스 설치 후, 웹 환경에서
+원활한 구동을 위해 <code>config.php</code> 파일에
+권한(<code>chmod 666</code>, <code>chcon</code> 등)을 부여하고 웹 설치
+마법사를 통해 MariaDB와 성공적으로 연동</li>
+</ul>
+<hr />
+<h2 id="오늘의-회고">💭 오늘의 회고</h2>
+<h3 id="배운-점">배운 점</h3>
+<ul>
+<li>서버에서 발생하는 단순 텍스트 로그가
+데이터베이스(<code>SystemEvents</code> 테이블)에 차곡차곡 쌓이고, 이것이
+다시 웹 화면으로 예쁘게 시각화되는 <strong>데이터 파이프라인의 전체
+구조</strong>를 명확히 이해했습니다.</li>
+<li>에러 발생 시 막막해하기보다, 로그 파일(<code>messages</code>)을 가장
+먼저 확인하고 <code>history</code> 명령어를 통해 나의 작업 과정을
+역추적하는 <strong>트러블슈팅의 정석</strong>을 배웠습니다.</li>
+</ul>
+<h3 id="트러블슈팅-어려운-점-및-해결-과정">트러블슈팅 (어려운 점 및 해결
+과정)</h3>
+<ul>
+<li><strong>대소문자 민감성:</strong> LogAnalyzer 웹 연동 과정에서 DB
+테이블명인 <code>SystemEvents</code>를 맨 앞 소문자 <code>s</code>로
+잘못 입력하는 바람에 연결에 실패하여 한참을 헤맸습니다. 리눅스와 DB
+환경에서는 대소문자 구분이 절대적이라는 점을 뼈저리게 깨달았습니다.</li>
+<li><strong>설정 동기화의 까다로움:</strong> DB
+사용자(<code>rsyslog</code>)의 비밀번호를 변경할 때, DB 자체 권한뿐만
+아니라 <code>rsyslog</code> 설정 파일, 그리고
+웹(<code>LogAnalyzer</code>) 설정 파일 등 총 3곳의 정보를 모두
+일치시켜야 한다는 점이 구조적으로 헷갈리고 까다로웠습니다.</li>
+</ul>
+<h3 id="액션-플랜">💡 액션 플랜</h3>
+<ul>
+<li>오늘 직접 겪은 대소문자 오타 이슈와 DB 권한 동기화 체크리스트를
+나만의 매뉴얼에 추가하여, 실무에서 같은 실수를 반복하여 시간을 낭비하지
+않도록 철저히 대비하겠습니다.</li>
+</ul>
