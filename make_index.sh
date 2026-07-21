@@ -15,14 +15,12 @@ cat > index.html << 'EOF'
   .hero h1 { font-weight: 800; margin-bottom: 10px; }
   .section { margin-top: 40px; margin-bottom: 40px; }
   
-  /* 프로젝트 카드 안의 파일 리스트 그리드 */
   .log-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 15px;
   }
   
-  /* 개별 파일 버튼 디자인 */
   .log-item {
     display: block;
     padding: 16px;
@@ -63,10 +61,10 @@ cat > index.html << 'EOF'
 <div class="container mb-5">
   
   <div class="section">
-    <h3 class="fw-bold mb-3">👨‍💻 소개 및 기술 스택</h3>
+    <h3 class="fw-bold mb-3">👨‍💻 프로필 및 기술 스택</h3>
     <p class="text-secondary">
-      울산과학대학교 전기전자공학과(반도체응용) 졸업<br>
-      인프라·보안 국비교육 수강 및 보안 AI 관리, 네트워크 관제 엔지니어 준비 중
+      교육: 울산과학대학교 반도체응용 전공 졸업 / 이스트캠프 가디언즈 정보보호 인프라 교육 수강<br>
+      목표: 네트워크 관제 및 보안 AI 관리 분야 엔지니어
     </p>
     <div class="mt-3 mb-5">
       <span class="badge bg-primary fs-6 me-1">Linux</span>
@@ -88,13 +86,18 @@ EOF
 > tmp_system.html
 > tmp_security.html
 > tmp_malware.html
+> tmp_etc.html
 
-# 3. 모든 HTML 파일을 돌면서 Subject(태그)별로 분류
-for file in *.html
+# 3. 모든 "마크다운(.md)" 파일을 돌면서 분류 (이 부분이 핵심 수정 사항입니다!)
+for file in *.md
 do
-    if [ "$file" = "index.html" ] || [ "$file" = "README.html" ]; then continue; fi
+    if [ "$file" = "README.md" ]; then continue; fi
+    # .md 파일이 아예 없을 경우를 대비한 방어 코드
+    if [ "$file" = "*.md" ]; then continue; fi
 
-    name_no_ext="${file%.html}"
+    name_no_ext="${file%.md}"
+    # 깃허브 블로그는 자동으로 html로 변환하여 보여주므로 링크는 html로 연결합니다.
+    link_href="${name_no_ext}.html"
 
     # 파일명에서 날짜(YYYY-MM-DD)와 제목 분리
     if [[ $name_no_ext =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)$ ]]; then
@@ -102,24 +105,26 @@ do
         title_part="${BASH_REMATCH[2]//-/ }"
         title_part=$(echo "$title_part" | tr 'a-z' 'A-Z') # 대문자로 변환
     else
-        date_part="Date"
+        date_part="학습 기록"
         title_part="$name_no_ext"
     fi
 
     # 개별 파일 버튼 HTML 틀
-    card_html="<a href=\"$file\" class=\"log-item\"><span class=\"log-date\">📅 $date_part</span><span class=\"log-title\">$title_part</span></a>"
+    card_html="<a href=\"$link_href\" class=\"log-item\"><span class=\"log-date\">📅 $date_part</span><span class=\"log-title\">$title_part</span></a>"
 
     # 노션 태그 기반으로 구역 나누기 (소문자로 변환해서 비교)
-    fname="${file,,}"
+    fname=$(echo "$file" | tr 'A-Z' 'a-z')
+    
     if [[ "$fname" == *"cisco"* || "$fname" == *"vpn"* || "$fname" == *"pfsense"* || "$fname" == *"gns3"* ]]; then
         echo "$card_html" >> tmp_network.html
     elif [[ "$fname" == *"ubuntu"* || "$fname" == *"virtualbox"* || "$fname" == *"windows"* || "$fname" == *"mariadb"* || "$fname" == *"linux"* || "$fname" == *"shell"* ]]; then
         echo "$card_html" >> tmp_system.html
     elif [[ "$fname" == *"flare"* || "$fname" == *"malware"* ]]; then
         echo "$card_html" >> tmp_malware.html
-    else
-        # kail(kali), dvwa, webgoat, wazuh 등 나머지 보안/해킹 관련은 모두 보안 카테고리로
+    elif [[ "$fname" == *"kali"* || "$fname" == *"kail"* || "$fname" == *"dvwa"* || "$fname" == *"wazuh"* || "$fname" == *"snort"* || "$fname" == *"webgoat"* || "$fname" == *"pentest"* || "$fname" == *"vuln"* || "$fname" == *"wordpress"* || "$fname" == *"metasploit"* || "$fname" == *"graylog"* || "$fname" == *"bee-box"* || "$fname" == *"ids"* ]]; then
         echo "$card_html" >> tmp_security.html
+    else
+        echo "$card_html" >> tmp_etc.html
     fi
 done
 
@@ -146,6 +151,7 @@ append_project_card "🌐 네트워크 구축 (Cisco, GNS3, pfSense)" "primary" 
 append_project_card "🖥️ 시스템 인프라 (Ubuntu, Windows Server, VirtualBox)" "success" "tmp_system.html"
 append_project_card "🛡️ 모의해킹 및 보안 관제 (Kali, DVWA, Wazuh, WebGoat)" "danger" "tmp_security.html"
 append_project_card "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.html"
+append_project_card "📁 기타 실습 기록" "secondary" "tmp_etc.html"
 
 # 6. 마무리 및 임시 파일 청소
 cat >> index.html << 'EOF'
@@ -154,6 +160,6 @@ cat >> index.html << 'EOF'
 </html>
 EOF
 
-rm tmp_network.html tmp_system.html tmp_security.html tmp_malware.html
+rm -f tmp_network.html tmp_system.html tmp_security.html tmp_malware.html tmp_etc.html
 
 echo "대표 프로젝트 카드형 포트폴리오 생성 완료!"
