@@ -5,22 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>홍기수 포트폴리오 - 학습 기록</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- 세련된 Pretendard 폰트 적용 -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
   <style>
     body {
-      background-color: #f4f6f9; /* 눈이 편안한 배경색 */
+      background-color: #f4f6f9;
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       color: #333;
       line-height: 1.7;
-      word-break: keep-all; /* 한글 단어 끊김 방지 */
+      word-break: keep-all;
     }
     
-    /* ==========================================
-       상단 고정 네비게이션 바 (헤더)
-       ========================================== */
     .navbar-custom {
-      background-color: #2c3e50; /* 고급스러운 네이비 색상 */
+      background-color: #2c3e50;
       padding: 15px 30px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
@@ -37,9 +33,7 @@
       text-decoration: none;
       letter-spacing: 0.5px;
     }
-    .navbar-custom a.brand:hover {
-      color: #3498db; /* 마우스 올렸을 때 하늘색으로 변경 */
-    }
+    .navbar-custom a.brand:hover { color: #3498db; }
     .navbar-custom .back-btn {
       color: #fff;
       font-size: 0.9rem;
@@ -50,13 +44,8 @@
       border-radius: 6px;
       transition: background 0.2s;
     }
-    .navbar-custom .back-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
+    .navbar-custom .back-btn:hover { background: rgba(255,255,255,0.3); }
 
-    /* ==========================================
-       본문 컨테이너 (노션 스타일)
-       ========================================== */
     .markdown-body {
       max-width: 850px;
       margin: 40px auto;
@@ -65,49 +54,17 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-
-    /* 마크다운 요소 세부 디자인 */
     .markdown-body h1 { font-weight: 800; font-size: 2.2rem; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #eaecef; }
     .markdown-body h2 { font-weight: 700; font-size: 1.6rem; margin-top: 40px; margin-bottom: 16px; border-bottom: 1px solid #eaecef; padding-bottom: 8px; }
     .markdown-body h3 { font-weight: 600; font-size: 1.3rem; margin-top: 30px; margin-bottom: 16px; }
     .markdown-body p { font-size: 1.05rem; margin-bottom: 16px; color: #444; }
     .markdown-body ul, .markdown-body ol { margin-bottom: 16px; padding-left: 30px; }
     .markdown-body li { font-size: 1.05rem; margin-bottom: 8px; color: #444; }
+    .markdown-body blockquote { margin: 20px 0; padding: 15px 20px; color: #555; border-left: 5px solid #3498db; background-color: #f8f9fa; border-radius: 0 8px 8px 0; }
+    .markdown-body code { background-color: #f1f3f5; padding: 3px 6px; border-radius: 4px; font-size: 0.9em; color: #d63384; font-weight: 600; }
+    .markdown-body pre { background-color: #212529; padding: 20px; border-radius: 8px; overflow: auto; margin: 20px 0; }
+    .markdown-body pre code { background-color: transparent; color: #f8f9fa; padding: 0; font-weight: normal; }
     
-    /* 인용구 (>) */
-    .markdown-body blockquote {
-      margin: 20px 0;
-      padding: 15px 20px;
-      color: #555;
-      border-left: 5px solid #3498db;
-      background-color: #f8f9fa;
-      border-radius: 0 8px 8px 0;
-    }
-    
-    /* 코드 블록 (회색 배경, 검은 배경) */
-    .markdown-body code {
-      background-color: #f1f3f5;
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-size: 0.9em;
-      color: #d63384;
-      font-weight: 600;
-    }
-    .markdown-body pre {
-      background-color: #212529;
-      padding: 20px;
-      border-radius: 8px;
-      overflow: auto;
-      margin: 20px 0;
-    }
-    .markdown-body pre code {
-      background-color: transparent;
-      color: #f8f9fa;
-      padding: 0;
-      font-weight: normal;
-    }
-    
-    /* 화면이 작아질 때 (모바일 대응) */
     @media (max-width: 768px) {
       .markdown-body { padding: 30px 20px; margin: 20px; }
       .navbar-custom { padding: 15px 20px; }
@@ -116,19 +73,15 @@
 </head>
 <body>
   
-  <!-- 상단 네비게이션 바 -->
   <nav class="navbar-custom">
-    <!-- 클릭 시 메인 페이지(index.html)로 이동 -->
-    <a href="{{ site.baseurl }}/index.html" class="brand">🚀 홍기수 포트폴리오</a>
-    
-    <!-- 방금 전 목록 페이지로 돌아가기 -->
+    <!-- 사이트 최상위(index.html)로 이동하는 로고 링크 -->
+    <a href="/Hong-ki-su.github.io/" class="brand">🚀 홍기수 포트폴리오</a>
+    <!-- 바로 이전 화면으로 돌아가는 버튼 -->
     <a href="javascript:history.back()" class="back-btn">⬅ 이전 화면</a>
   </nav>
 
-  <!-- 본문 영역 -->
   <div class="container">
     <div class="markdown-body">
-      <!-- 이 자리에 기수님의 마크다운 내용이 예쁘게 들어갑니다 -->
       {{ content }}
     </div>
   </div>
