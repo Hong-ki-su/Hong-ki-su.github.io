@@ -1,7 +1,9 @@
 
 layout: default
 
-[Infra/Security] Wazuh Agent 구축 및 API 트러블슈팅 기록
+$$Infra/Security$$
+
+ Wazuh Agent 구축 및 API 트러블슈팅 기록
 
 날짜: 2026년 6월
 주제: 오픈소스 SIEM(Wazuh) 에이전트 연동 및 에러 분석

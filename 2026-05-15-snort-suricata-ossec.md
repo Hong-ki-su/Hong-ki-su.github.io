@@ -1,7 +1,9 @@
 
 layout: default
 
-[NIDS/NIPS] Snort & Suricata 기반 트래픽 탐지 및 차단, OSSEC 시스템 보안
+$$NIDS/NIPS$$
+
+ Snort & Suricata 기반 트래픽 탐지 및 차단, OSSEC 시스템 보안
 
 날짜: 2026년 5월 15일 ~ 22일
 주제: 침입 탐지/방지 시스템(IDS/IPS) 구축, DDoS/스캔 공격 방어, 시스템 무결성 점검

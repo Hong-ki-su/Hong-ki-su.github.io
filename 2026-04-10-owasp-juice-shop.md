@@ -1,7 +1,9 @@
 
 layout: default
 
-[Web Security] OWASP Juice Shop 웹 취약점 분석 및 모의해킹
+$$Web Security$$
+
+ OWASP Juice Shop 웹 취약점 분석 및 모의해킹
 
 날짜: 2026년 4월
 주제: 웹 애플리케이션 취약점 진단 (XSS, Broken Access Control, Input Validation)

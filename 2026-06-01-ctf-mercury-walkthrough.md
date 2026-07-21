@@ -1,7 +1,9 @@
 
 layout: default
 
-[CTF] Boot-to-Root 모의해킹 워크스루 : Mercury
+$$CTF$$
+
+ Boot-to-Root 모의해킹 워크스루 : Mercury
 
 날짜: 2026년 6월
 주제: 정보 수집, SQL Injection(sqlmap), SSH 침투, PATH Hijacking 권한 상승

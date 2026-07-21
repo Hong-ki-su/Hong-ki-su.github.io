@@ -1,7 +1,9 @@
 
 layout: default
 
-[Development] Python Pygame 미니 게임 및 Shell 스크립트
+$$Development$$
+
+ Python Pygame 미니 게임 및 Shell 스크립트
 
 날짜: 2026년 6월
 주제: Python 로직 구현 및 Bash 스크립트를 이용한 로그 무결성 자동 점검
