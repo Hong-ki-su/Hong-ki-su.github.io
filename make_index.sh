@@ -18,7 +18,7 @@ cat > index.html << EOF
 
 <!-- 2차 프로젝트 (우수상) 카드 -->
 <div class="col-md-6 mb-4">
-  <div class="card h-100 shadow-sm award-card">
+  <div class="card h-100 shadow-sm border-warning" style="border-width: 2px;">
     <div class="card-body">
       <span class="badge bg-warning text-dark mb-2 fs-6">🏆 우수상 (이스트소프트 대표이사상)</span><br>
       <span class="badge bg-secondary mb-3">2차 프로젝트</span>
@@ -35,7 +35,7 @@ cat > index.html << EOF
 
 <!-- 1차 프로젝트 카드 -->
 <div class="col-md-6 mb-4">
-  <div class="card h-100 shadow-sm border-secondary">
+  <div class="card h-100 shadow-sm border-secondary" style="border-width: 2px;">
     <div class="card-body">
       <span class="badge bg-secondary mb-3">1차 프로젝트</span>
       <h5 class="card-title fw-bold">어울림 통합 보안 솔루션 컨설팅</h5>
@@ -138,5 +138,8 @@ create_detail_page "system.html" "🖥️ 시스템 인프라 (Ubuntu, Windows S
 create_detail_page "security.html" "🛡️ 모의해킹 및 보안 관제 (Kali, DVWA, Wazuh, WebGoat)" "danger" "tmp_security.txt"
 create_detail_page "malware.html" "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.txt"
 
+6. 임시 파일 삭제
+
 rm -f tmp_*.txt
-echo "수상 내역이 추가된 포트폴리오 생성 완료!"
+
+echo "포트폴리오 스크립트 완전 복구 및 실행 성공!"
