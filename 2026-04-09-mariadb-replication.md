@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [VirtualBox/DB] 인프라 보안 수업 - MariaDB 계정 보안 및 복제(Replication) 구축
 
 **날짜:** 2026년 4월 9일  

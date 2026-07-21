@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [VirtualBox/Linux] 인프라 보안 수업 - rsyslog 로그 중앙 집중화 및 LogAnalyzer 시각화
 
 **날짜:** 2026년 4월 6일  

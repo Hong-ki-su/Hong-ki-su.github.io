@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [웹 모의해킹/WAF] 인프라 보안 수업 - WebGoat 취약점 공격 및 ModSecurity 방어 실무
 
 **날짜:** 2026년 7월 1일

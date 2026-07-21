@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [VirtualBox/Linux] 인프라 보안 수업 - Apache 웹 서버 및 MariaDB 구축
 
 **날짜:** 2026년 4월 1일  

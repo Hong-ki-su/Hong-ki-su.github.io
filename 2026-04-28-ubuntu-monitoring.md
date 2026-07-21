@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [Ubuntu/Monitoring] 인프라 보안 수업 - Docker 기반 Zabbix 및 PMM 모니터링 시스템 구축
 
 **날짜:** 2026년 4월 28일  

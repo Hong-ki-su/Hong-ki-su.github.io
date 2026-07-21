@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [보안 인프라] 인프라 보안 수업 - pfSense OpenVPN 구축 및 Cisco ASAv 방화벽 접근 제어 실무
 
 **날짜:** 2026년 5월 7일  

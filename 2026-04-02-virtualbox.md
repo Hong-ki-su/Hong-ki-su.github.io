@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [VirtualBox/Linux] 인프라 보안 수업 - Rocky Linux 서버 인프라 구축 및 보안 설정
 
 **날짜:** 2026년 4월 2일  

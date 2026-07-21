@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [Windows Server/Linux] 인프라 보안 수업 - 계정 보안 및 IIS 웹 서버 구축
 
 **날짜:** 2026년 4월 7일  

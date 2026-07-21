@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [모의해킹] 인프라 보안 수업 - Kali Linux 리버스 쉘 및 Capabilities 권한 상승 기법
 
 **날짜:** 2026년 5월 13일  

@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # [보안 관제/SIEM] 인프라 보안 수업 - Wazuh 오픈소스 HIDS/SIEM 올인원(All-in-one) 구축 실무
 
 **날짜:** 2026년 7월 20일  
