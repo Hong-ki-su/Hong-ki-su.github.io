@@ -32,7 +32,7 @@ cat > index.html << HTML_EOF
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홍기수 포트폴리오</title>
-\$CSS_STYLE
+$CSS_STYLE
 </head>
 <body>
 <div class="hero">
@@ -147,34 +147,34 @@ rm -f tmp_*.txt
 # ==========================================
 for file in *.md
 do
-    if [ "\$file" = "README.md" ]; then continue; fi
-    if [ "\$file" = "*.md" ]; then continue; fi
-    if [[ "\$file" == tmp_* ]]; then continue; fi 
+    if [ "$file" = "README.md" ]; then continue; fi
+    if [ "$file" = "*.md" ]; then continue; fi
+    if [[ "$file" == tmp_* ]]; then continue; fi 
 
-    name_no_ext="\${file%.md}"
-    link_href="\${name_no_ext}.html"
+    name_no_ext="${file%.md}"
+    link_href="${name_no_ext}.html"
 
-    if [[ \$name_no_ext =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)\$ ]]; then
-        date_part="\${BASH_REMATCH[1]}"
-        title_part="\${BASH_REMATCH[2]//-/ }"
-        title_part=\$(echo "\$title_part" | tr 'a-z' 'A-Z')
+    if [[ $name_no_ext =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)$ ]]; then
+        date_part="${BASH_REMATCH[1]}"
+        title_part="${BASH_REMATCH[2]//-/ }"
+        title_part=$(echo "$title_part" | tr 'a-z' 'A-Z')
     else
         date_part="학습 기록"
-        title_part=\$(echo "\$name_no_ext" | tr 'a-z' 'A-Z')
+        title_part=$(echo "$name_no_ext" | tr 'a-z' 'A-Z')
     fi
 
-    card_html="<a href=\"\$link_href\" class=\"log-item\"><span class=\"log-date\">📅 \$date_part</span><span class=\"log-title\">\$title_part</span></a>"
+    card_html="<a href=\"$link_href\" class=\"log-item\"><span class=\"log-date\">📅 $date_part</span><span class=\"log-title\">$title_part</span></a>"
 
-    fname=\$(echo "\$file" | tr 'A-Z' 'a-z')
+    fname=$(echo "$file" | tr 'A-Z' 'a-z')
     
-    if [[ "\$fname" == *"cisco"* || "\$fname" == *"vpn"* || "\$fname" == *"pfsense"* || "\$fname" == *"gns3"* ]]; then
-        echo "\$card_html" >> tmp_network.txt
-    elif [[ "\$fname" == *"ubuntu"* || "\$fname" == *"virtualbox"* || "\$fname" == *"windows"* || "\$fname" == *"mariadb"* || "\$fname" == *"linux"* || "\$fname" == *"shell"* ]]; then
-        echo "\$card_html" >> tmp_system.txt
-    elif [[ "\$fname" == *"flare"* || "\$fname" == *"malware"* ]]; then
-        echo "\$card_html" >> tmp_malware.txt
+    if [[ "$fname" == *"cisco"* || "$fname" == *"vpn"* || "$fname" == *"pfsense"* || "$fname" == *"gns3"* ]]; then
+        echo "$card_html" >> tmp_network.txt
+    elif [[ "$fname" == *"ubuntu"* || "$fname" == *"virtualbox"* || "$fname" == *"windows"* || "$fname" == *"mariadb"* || "$fname" == *"linux"* || "$fname" == *"shell"* ]]; then
+        echo "$card_html" >> tmp_system.txt
+    elif [[ "$fname" == *"flare"* || "$fname" == *"malware"* ]]; then
+        echo "$card_html" >> tmp_malware.txt
     else
-        echo "\$card_html" >> tmp_security.txt
+        echo "$card_html" >> tmp_security.txt
     fi
 done
 
@@ -182,19 +182,19 @@ done
 # 4. 상세 페이지 자동 생성 함수
 # ==========================================
 create_detail_page() {
-    local target_html="\$1"
-    local title="\$2"
-    local bg_color="\$3"
-    local tmp_file="\$4"
+    local target_html="$1"
+    local title="$2"
+    local bg_color="$3"
+    local tmp_file="$4"
 
-    cat > "\$target_html" << HTML_EOF
+    cat > "$target_html" << HTML_EOF
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>\$title - 상세 페이지</title>
-\$CSS_STYLE
+<title>$title - 상세 페이지</title>
+$CSS_STYLE
 </head>
 <body>
 <div class="container mt-5 mb-5">
@@ -203,19 +203,19 @@ create_detail_page() {
     <a href="index.html" class="btn btn-secondary fw-bold">⬅ 메인으로 돌아가기</a>
   </div>
   
-  <div class="card border-\${bg_color} shadow-sm">
-    <div class="card-header bg-\${bg_color} text-white fs-5 fw-bold py-3">\$title</div>
+  <div class="card border-${bg_color} shadow-sm">
+    <div class="card-header bg-${bg_color} text-white fs-5 fw-bold py-3">$title</div>
     <div class="card-body bg-light p-4">
       <div class="log-grid">
 HTML_EOF
     
-    if [ -s "\$tmp_file" ]; then
-        cat "\$tmp_file" >> "\$target_html"
+    if [ -s "$tmp_file" ]; then
+        cat "$tmp_file" >> "$target_html"
     else
-        echo "<p class='text-muted'>등록된 학습 기록이 없습니다.</p>" >> "\$target_html"
+        echo "<p class='text-muted'>등록된 학습 기록이 없습니다.</p>" >> "$target_html"
     fi
 
-    cat >> "\$target_html" << HTML_EOF
+    cat >> "$target_html" << HTML_EOF
       </div>
     </div>
   </div>
