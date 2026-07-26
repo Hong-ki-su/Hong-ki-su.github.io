@@ -268,4 +268,4 @@ create_detail_page "security.html" "🛡️ 모의해킹 및 보안 관제 (Kali
 create_detail_page "malware.html" "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.txt"
 
 rm -f tmp_*.txt
-echo "튜터님 피드백 반영 완료! 스크립트가 안전하게 저장되었습니다."
+echo "튜터님 피드백 반영 완료! 스크립트 실행이 성공적으로 끝났습니다."
