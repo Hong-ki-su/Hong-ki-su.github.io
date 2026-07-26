@@ -20,7 +20,7 @@
   .section-title::before { content: ""; display: inline-block; width: 4px; height: 24px; background: #0ea5e9; margin-right: 12px; border-radius: 2px; }
   .section-container { margin-top: 60px; margin-bottom: 60px; }
 
-  /* 핵심 역량 카드 (Core Capabilities) */
+  /* 핵심 역량 카드 */
   .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .cap-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; transition: transform 0.2s, box-shadow 0.2s; }
   .cap-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
@@ -28,13 +28,13 @@
   .cap-title { font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
   .cap-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0; }
 
-  /* 기술 스택 (Tech Stack) */
+  /* 기술 스택 */
   .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .tech-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; }
   .tech-category { font-size: 1rem; font-weight: 700; color: #0ea5e9; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
   .tech-badge { display: inline-block; background: #f1f5f9; color: #334155; padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; margin: 0 8px 8px 0; border: 1px solid #e2e8f0; }
 
-  /* 주요 프로젝트 (Projects) */
+  /* 주요 프로젝트 */
   .project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px; margin-bottom: 30px; position: relative; }
   .project-status { position: absolute; top: 30px; right: 30px; background: #dcfce7; color: #166534; font-size: 0.85rem; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: 1px solid #bbf7d0; }
   .project-meta { font-size: 0.9rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
@@ -44,6 +44,8 @@
   .project-desc-list { padding-left: 20px; color: #475569; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; }
   .project-desc-list li { margin-bottom: 10px; }
   .project-desc-list strong { color: #1e293b; font-weight: 700; }
+  
+  /* 공통 버튼 */
   .btn-custom { display: inline-flex; align-items: center; background: #ffffff; color: #0ea5e9; font-weight: 700; padding: 8px 16px; border: 2px solid #0ea5e9; border-radius: 8px; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
   .btn-custom:hover { background: #0ea5e9; color: #ffffff; }
 
@@ -64,7 +66,7 @@
 
 <div class="container">
   
-  <!-- 핵심 역량 (Core Capabilities) -->
+  <!-- 핵심 역량 -->
   <div class="section-container">
     <h2 class="section-title">핵심 역량</h2>
     <div class="cap-grid">
@@ -91,7 +93,7 @@
     </div>
   </div>
 
-  <!-- 기술 스택 (Tech Stack) -->
+  <!-- 기술 스택 -->
   <div class="section-container">
     <h2 class="section-title">기술 스택</h2>
     <div class="tech-grid">
@@ -127,11 +129,11 @@
     </div>
   </div>
 
-  <!-- 주요 프로젝트 (Projects) -->
+  <!-- 주요 프로젝트 -->
   <div class="section-container">
     <h2 class="section-title">주요 프로젝트</h2>
 
-    <!-- 프로젝트 1: 우수상 -->
+    <!-- 프로젝트 1 -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">PRJ • 01 — 팀 프로젝트 / 인프라 구축 & 모의해킹</div>
@@ -153,7 +155,7 @@
       </div>
     </div>
 
-    <!-- 프로젝트 2: 1차 프로젝트 -->
+    <!-- 프로젝트 2 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">PRJ • 02 — 팀 프로젝트 / 초기 인프라 설계</div>
@@ -168,7 +170,7 @@
       <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 결과 보고서 보기 →</a>
     </div>
 
-    <!-- 프로젝트 3: 개인 실습 과제 -->
+    <!-- 프로젝트 3 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">PRJ • 03 — 개인 실습 / 보안 장비 및 관제</div>
@@ -189,6 +191,35 @@
       </div>
     </div>
   </div>
+  
+  <!-- 복구된 상세 학습 기록 (Detailed Learning Records) -->
+  <div class="section-container">
+    <h2 class="section-title">상세 학습 기록</h2>
+    <p class="text-secondary mb-4" style="font-size: 1.05rem;">매일 꾸준히 정리한 마크다운(.md) 기반의 기술 블로그 및 학습 로그입니다.</p>
+    <div class="cap-grid">
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3>
+        <p class="cap-desc mb-3">Cisco, VPN, Firewall, pfSense</p>
+        <a href="network.html" class="btn-custom w-100 justify-content-center">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3>
+        <p class="cap-desc mb-3">Ubuntu, Windows Server, MariaDB</p>
+        <a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습</h3>
+        <p class="cap-desc mb-3">DVWA, WebGoat, Wazuh, Metasploit</p>
+        <a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3>
+        <p class="cap-desc mb-3">Flare VM, Static Malware Analysis</p>
+        <a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">상세페이지 보기 →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">

@@ -26,7 +26,7 @@ cat > index.html << 'HTML_EOF'
   .section-title::before { content: ""; display: inline-block; width: 4px; height: 24px; background: #0ea5e9; margin-right: 12px; border-radius: 2px; }
   .section-container { margin-top: 60px; margin-bottom: 60px; }
 
-  /* 핵심 역량 카드 (Core Capabilities) */
+  /* 핵심 역량 카드 */
   .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .cap-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; transition: transform 0.2s, box-shadow 0.2s; }
   .cap-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
@@ -34,13 +34,13 @@ cat > index.html << 'HTML_EOF'
   .cap-title { font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
   .cap-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0; }
 
-  /* 기술 스택 (Tech Stack) */
+  /* 기술 스택 */
   .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .tech-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; }
   .tech-category { font-size: 1rem; font-weight: 700; color: #0ea5e9; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
   .tech-badge { display: inline-block; background: #f1f5f9; color: #334155; padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; margin: 0 8px 8px 0; border: 1px solid #e2e8f0; }
 
-  /* 주요 프로젝트 (Projects) */
+  /* 주요 프로젝트 */
   .project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px; margin-bottom: 30px; position: relative; }
   .project-status { position: absolute; top: 30px; right: 30px; background: #dcfce7; color: #166534; font-size: 0.85rem; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: 1px solid #bbf7d0; }
   .project-meta { font-size: 0.9rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
@@ -50,6 +50,8 @@ cat > index.html << 'HTML_EOF'
   .project-desc-list { padding-left: 20px; color: #475569; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; }
   .project-desc-list li { margin-bottom: 10px; }
   .project-desc-list strong { color: #1e293b; font-weight: 700; }
+  
+  /* 공통 버튼 */
   .btn-custom { display: inline-flex; align-items: center; background: #ffffff; color: #0ea5e9; font-weight: 700; padding: 8px 16px; border: 2px solid #0ea5e9; border-radius: 8px; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
   .btn-custom:hover { background: #0ea5e9; color: #ffffff; }
 
@@ -70,7 +72,7 @@ cat > index.html << 'HTML_EOF'
 
 <div class="container">
   
-  <!-- 핵심 역량 (Core Capabilities) -->
+  <!-- 핵심 역량 -->
   <div class="section-container">
     <h2 class="section-title">핵심 역량</h2>
     <div class="cap-grid">
@@ -97,7 +99,7 @@ cat > index.html << 'HTML_EOF'
     </div>
   </div>
 
-  <!-- 기술 스택 (Tech Stack) -->
+  <!-- 기술 스택 -->
   <div class="section-container">
     <h2 class="section-title">기술 스택</h2>
     <div class="tech-grid">
@@ -133,11 +135,11 @@ cat > index.html << 'HTML_EOF'
     </div>
   </div>
 
-  <!-- 주요 프로젝트 (Projects) -->
+  <!-- 주요 프로젝트 -->
   <div class="section-container">
     <h2 class="section-title">주요 프로젝트</h2>
 
-    <!-- 프로젝트 1: 우수상 -->
+    <!-- 프로젝트 1 -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">PRJ • 01 — 팀 프로젝트 / 인프라 구축 & 모의해킹</div>
@@ -159,7 +161,7 @@ cat > index.html << 'HTML_EOF'
       </div>
     </div>
 
-    <!-- 프로젝트 2: 1차 프로젝트 -->
+    <!-- 프로젝트 2 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">PRJ • 02 — 팀 프로젝트 / 초기 인프라 설계</div>
@@ -174,7 +176,7 @@ cat > index.html << 'HTML_EOF'
       <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 결과 보고서 보기 →</a>
     </div>
 
-    <!-- 프로젝트 3: 개인 실습 과제 -->
+    <!-- 프로젝트 3 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">PRJ • 03 — 개인 실습 / 보안 장비 및 관제</div>
@@ -195,6 +197,35 @@ cat > index.html << 'HTML_EOF'
       </div>
     </div>
   </div>
+  
+  <!-- 복구된 상세 학습 기록 (Detailed Learning Records) -->
+  <div class="section-container">
+    <h2 class="section-title">상세 학습 기록</h2>
+    <p class="text-secondary mb-4" style="font-size: 1.05rem;">매일 꾸준히 정리한 마크다운(.md) 기반의 기술 블로그 및 학습 로그입니다.</p>
+    <div class="cap-grid">
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3>
+        <p class="cap-desc mb-3">Cisco, VPN, Firewall, pfSense</p>
+        <a href="network.html" class="btn-custom w-100 justify-content-center">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3>
+        <p class="cap-desc mb-3">Ubuntu, Windows Server, MariaDB</p>
+        <a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습</h3>
+        <p class="cap-desc mb-3">DVWA, WebGoat, Wazuh, Metasploit</p>
+        <a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">상세페이지 보기 →</a>
+      </div>
+      <div class="cap-card" style="text-align: center;">
+        <h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3>
+        <p class="cap-desc mb-3">Flare VM, Static Malware Analysis</p>
+        <a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">상세페이지 보기 →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">
@@ -205,7 +236,106 @@ cat > index.html << 'HTML_EOF'
 </html>
 HTML_EOF
 
-# 임시 파일 삭제
+# ==========================================
+# 2. 기존 마크다운 파일 자동 변환 및 서브페이지 생성 로직 (복구 완료!)
+# ==========================================
 rm -f tmp_*.txt
+> tmp_network.txt
+> tmp_system.txt
+> tmp_security.txt
+> tmp_malware.txt
 
-echo "튜터님 레퍼런스 스타일 포트폴리오 스크립트 저장 완료!"
+for file in *.md; do
+    if [ "$file" = "README.md" ]; then continue; fi
+    if [ "$file" = "*.md" ]; then continue; fi
+    if [[ "$file" == tmp_* ]]; then continue; fi 
+
+    name_no_ext="${file%.md}"
+    link_href="${name_no_ext}.html"
+
+    if [[ $name_no_ext =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)$ ]]; then
+        date_part="${BASH_REMATCH[1]}"
+        title_part="${BASH_REMATCH[2]//-/ }"
+        title_part=$(echo "$title_part" | tr 'a-z' 'A-Z')
+    else
+        date_part="학습 기록"
+        title_part=$(echo "$name_no_ext" | tr 'a-z' 'A-Z')
+    fi
+
+    card_html="<a href=\"$link_href\" class=\"log-item\"><span class=\"log-date\">📅 $date_part</span><span class=\"log-title\">$title_part</span></a>"
+    fname=$(echo "$file" | tr 'A-Z' 'a-z')
+    
+    if [[ "$fname" == *"cisco"* || "$fname" == *"vpn"* || "$fname" == *"pfsense"* || "$fname" == *"gns3"* ]]; then
+        echo "$card_html" >> tmp_network.txt
+    elif [[ "$fname" == *"ubuntu"* || "$fname" == *"virtualbox"* || "$fname" == *"windows"* || "$fname" == *"mariadb"* || "$fname" == *"linux"* || "$fname" == *"shell"* ]]; then
+        echo "$card_html" >> tmp_system.txt
+    elif [[ "$fname" == *"flare"* || "$fname" == *"malware"* ]]; then
+        echo "$card_html" >> tmp_malware.txt
+    else
+        echo "$card_html" >> tmp_security.txt
+    fi
+done
+
+create_detail_page() {
+    local target_html="$1"
+    local title="$2"
+    local bg_color="$3"
+    local tmp_file="$4"
+
+    cat > "$target_html" << HTML_EOF
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$title</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+<style>
+  body { background: #f4f6f8; color: #1e293b; font-family: "Pretendard", sans-serif; }
+  .log-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 15px; }
+  .log-item { display: block; padding: 16px; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; color: #0f172a; transition: all 0.2s ease; }
+  .log-item:hover { border-color: #0ea5e9; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.05); color: #0ea5e9; }
+  .log-date { font-size: 0.85rem; color: #64748b; margin-bottom: 6px; display: block; font-weight: 600; }
+  .log-title { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+  .footer { background: #0f172a; color: #94a3b8; padding: 40px 20px; text-align: center; margin-top: 80px; }
+</style>
+</head>
+<body>
+<div class="container mt-5 mb-5" style="min-height: 60vh;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold" style="color: #0f172a;">📁 상세 학습 기록</h2>
+    <a href="index.html" class="btn btn-outline-secondary fw-bold">⬅ 메인으로 돌아가기</a>
+  </div>
+  <div class="card shadow-sm" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+    <div class="card-header text-white fs-5 fw-bold py-3" style="background-color: var(--bs-${bg_color}); border-bottom: none;">$title</div>
+    <div class="card-body p-4" style="background-color: #ffffff;">
+      <div class="log-grid">
+HTML_EOF
+    
+    if [ -s "$tmp_file" ]; then
+        cat "$tmp_file" >> "$target_html"
+    else
+        echo "<p class='text-muted'>등록된 학습 기록이 없습니다.</p>" >> "$target_html"
+    fi
+
+    cat >> "$target_html" << HTML_EOF
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <p>© 2026. Hong Gi Su. All rights reserved.</p>
+</div>
+</body>
+</html>
+HTML_EOF
+}
+
+create_detail_page "network.html" "🌐 네트워크 구축 (Cisco, GNS3, pfSense)" "primary" "tmp_network.txt"
+create_detail_page "system.html" "🖥️ 시스템 인프라 (Ubuntu, Windows Server, VirtualBox)" "success" "tmp_system.txt"
+create_detail_page "security.html" "🛡️ 모의해킹 및 보안 관제 (Kali, DVWA, Wazuh, WebGoat)" "danger" "tmp_security.txt"
+create_detail_page "malware.html" "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.txt"
+
+rm -f tmp_*.txt
+echo "새로운 디자인에 기존 마크다운 상세 학습 기록 복구 완료!"
