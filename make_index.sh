@@ -19,7 +19,7 @@ cat > index.html << 'HTML_EOF'
   .hero { background: #ffffff; padding: 80px 20px 60px; border-bottom: 1px solid #e2e8f0; }
   .hero h1 { font-weight: 800; font-size: 2.8rem; color: #0f172a; letter-spacing: -1px; }
   .hero p.subtitle { color: #0ea5e9; font-weight: 700; font-size: 1.2rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
-  .hero p.desc { color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 20px 0 0; line-height: 1.6; }
+  .hero p.desc { color: #64748b; font-size: 1.1rem; max-width: 700px; margin: 20px 0 0; line-height: 1.6; }
 
   /* 공통 타이틀 */
   .section-title { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 30px; display: flex; align-items: center; }
@@ -64,7 +64,7 @@ cat > index.html << 'HTML_EOF'
   <div class="container">
     <h1>홍기수</h1>
     <p class="subtitle">Infrastructure & Security Engineer</p>
-    <p class="desc">탄탄한 네트워크 인프라 설계부터 모의해킹 및 로그 분석을 통한 선제적 방어까지, IT 인프라의 전 과정을 아우르는 엔지니어를 목표로 합니다. 원인을 찾을 때까지 파고드는 집요함이 저의 무기입니다.</p>
+    <p class="desc">반도체응용 전공으로 다진 하드웨어 및 시스템 구조에 대한 이해도를 바탕으로, 가디언즈 정보보호 인프라 교육을 수료하며 탄탄한 IT 인프라 역량을 쌓았습니다. 취득한 네트워크관리사 2급 지식을 기반으로 네트워크 아키텍처 설계부터 서버 무결성 점검, 선제적 보안 관제까지 완벽하게 책임지는 엔지니어를 목표로 합니다.</p>
   </div>
 </div>
 
@@ -208,4 +208,4 @@ HTML_EOF
 # 임시 파일 삭제
 rm -f tmp_*.txt
 
-echo "튜터님 레퍼런스 스타일 포트폴리오 생성 완료!"
+echo "튜터님 레퍼런스 스타일 포트폴리오 스크립트 저장 완료!"

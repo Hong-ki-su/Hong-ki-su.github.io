@@ -3,157 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>홍기수 포트폴리오</title>
+<title>홍기수 | 인프라 & 보안 포트폴리오</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
 <style>
-  body { background: #f8f9fa; color: #333; font-family: "Pretendard", sans-serif; word-break: keep-all; }
-  .hero { background: #1a252f; color: white; padding: 70px 20px; text-align: center; }
-  .hero h1 { font-weight: 800; margin-bottom: 10px; font-size: 2.5rem; }
-  .hero p { color: #1abc9c; font-weight: 600; font-size: 1.2rem; }
-  .section { margin-top: 50px; margin-bottom: 50px; }
+  body { background: #f4f6f8; color: #1e293b; font-family: "Pretendard", sans-serif; word-break: keep-all; }
   
-  /* 타임라인(연혁) 디자인 */
-  .timeline { position: relative; padding-left: 30px; border-left: 3px solid #3498db; margin-top: 30px; }
-  .timeline-item { position: relative; margin-bottom: 40px; }
-  .timeline-item::before { content: ""; position: absolute; left: -39px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid #3498db; }
-  .timeline-date { font-weight: 700; color: #3498db; margin-bottom: 5px; font-size: 0.95rem; }
-  .timeline-content { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e9ecef; }
-  .timeline-content h4 { font-weight: 800; color: #2c3e50; margin-bottom: 15px; }
-  
-  /* 상세 학습 기록 디자인 */
-  .log-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 15px; }
-  .log-item { display: block; padding: 16px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; text-decoration: none; color: #2c3e50; transition: all 0.2s ease; }
-  .log-item:hover { border-color: #3498db; background-color: #f8fbfe; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.08); color: #2980b9; }
-  .log-date { font-size: 0.85rem; color: #7f8c8d; margin-bottom: 6px; display: block; font-weight: 600; }
-  .log-title { font-size: 1rem; font-weight: 700; line-height: 1.4; }
-  
-  /* 푸터(Footer) 디자인 */
-  .footer { background: #2c3e50; color: #ecf0f1; padding: 40px 0; text-align: center; margin-top: 60px; }
-  .footer p { margin: 0; font-size: 0.95rem; color: #bdc3c7; }
+  /* 헤더 섹션 */
+  .hero { background: #ffffff; padding: 80px 20px 60px; border-bottom: 1px solid #e2e8f0; }
+  .hero h1 { font-weight: 800; font-size: 2.8rem; color: #0f172a; letter-spacing: -1px; }
+  .hero p.subtitle { color: #0ea5e9; font-weight: 700; font-size: 1.2rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .hero p.desc { color: #64748b; font-size: 1.1rem; max-width: 700px; margin: 20px 0 0; line-height: 1.6; }
+
+  /* 공통 타이틀 */
+  .section-title { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 30px; display: flex; align-items: center; }
+  .section-title::before { content: ""; display: inline-block; width: 4px; height: 24px; background: #0ea5e9; margin-right: 12px; border-radius: 2px; }
+  .section-container { margin-top: 60px; margin-bottom: 60px; }
+
+  /* 핵심 역량 카드 (Core Capabilities) */
+  .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .cap-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; transition: transform 0.2s, box-shadow 0.2s; }
+  .cap-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
+  .cap-num { font-size: 0.85rem; font-weight: 700; color: #94a3b8; margin-bottom: 10px; letter-spacing: 1px; }
+  .cap-title { font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .cap-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0; }
+
+  /* 기술 스택 (Tech Stack) */
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .tech-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; }
+  .tech-category { font-size: 1rem; font-weight: 700; color: #0ea5e9; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+  .tech-badge { display: inline-block; background: #f1f5f9; color: #334155; padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; margin: 0 8px 8px 0; border: 1px solid #e2e8f0; }
+
+  /* 주요 프로젝트 (Projects) */
+  .project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px; margin-bottom: 30px; position: relative; }
+  .project-status { position: absolute; top: 30px; right: 30px; background: #dcfce7; color: #166534; font-size: 0.85rem; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: 1px solid #bbf7d0; }
+  .project-meta { font-size: 0.9rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
+  .project-title { font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
+  .project-tags { margin-bottom: 20px; }
+  .project-tag { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 5px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; margin: 0 6px 6px 0; }
+  .project-desc-list { padding-left: 20px; color: #475569; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; }
+  .project-desc-list li { margin-bottom: 10px; }
+  .project-desc-list strong { color: #1e293b; font-weight: 700; }
+  .btn-custom { display: inline-flex; align-items: center; background: #ffffff; color: #0ea5e9; font-weight: 700; padding: 8px 16px; border: 2px solid #0ea5e9; border-radius: 8px; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-custom:hover { background: #0ea5e9; color: #ffffff; }
+
+  /* 푸터 */
+  .footer { background: #0f172a; color: #94a3b8; padding: 40px 20px; text-align: center; margin-top: 80px; }
 </style>
 </head>
 <body>
 
+<!-- Hero Section -->
 <div class="hero">
-  <h1>홍기수</h1>
-  <p>Infrastructure & Security Engineer</p>
-</div>
-
-<div class="container mb-5">
-  
-  <!-- 프로필 섹션 -->
-  <div class="section text-center">
-    <h3 class="fw-bold mb-3">👨‍💻 인프라 구축부터 관제까지 아우르는 엔지니어</h3>
-    <p class="text-secondary lh-lg fs-6">
-      네트워크 인프라의 뼈대를 설계하는 구축 과정과, 그 위에서 발생하는 위협을 찾아내는 관제 및 분석 과정을 모두 경험했습니다.<br>
-      가디언즈 정보보호 인프라 교육을 통해 단단한 기초를 다졌으며, 어떤 문제 앞에서도 끝까지 원인을 파악하는 끈기를 가지고 있습니다.
-    </p>
-    <div class="mt-4">
-      <span class="badge bg-danger fs-6 me-1">Snort/Suricata</span>
-      <span class="badge bg-secondary fs-6 me-1">Wazuh</span>
-      <span class="badge bg-primary fs-6 me-1">Linux/Windows</span>
-      <span class="badge bg-dark fs-6 me-1">Cisco</span>
-      <span class="badge bg-warning text-dark fs-6 me-1">pfSense</span>
-      <span class="badge bg-info text-dark fs-6 me-1">Python</span>
-    </div>
-  </div>
-
-  <hr style="border-color: #dee2e6; margin: 40px 0;">
-
-  <!-- 연혁(Timeline) 형태의 프로젝트 정리 -->
-  <h3 class="fw-bold mb-4">🚀 주요 프로젝트 및 실습 연혁</h3>
-  
-  <div class="timeline">
-    
-    <!-- 튜터님 피드백 반영: 제일 잘한 팀 프로젝트를 맨 위로 배치 -->
-    <div class="timeline-item">
-      <div class="timeline-date">2026년 진행 - 팀 프로젝트 (우수상 수상)</div>
-      <div class="timeline-content" style="border: 2px solid #f39c12; background-color: #fffcf5;">
-        <h4>🏆 2차 팀 프로젝트 (모의해킹 및 보안 인프라 구축)</h4>
-        <p class="text-secondary mb-3">가디언즈 부트캠프 과정 중 우수상을 수상한 2차 팀 프로젝트입니다. 인프라 구축 계획부터 모의해킹 결과 분석까지 전 과정을 수행했습니다.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn btn-warning fw-bold text-dark">🏅 우수상 상장 보기</a>
-          <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn btn-outline-primary fw-bold">📄 프로젝트 계획서</a>
-          <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn btn-outline-success fw-bold">📄 모의해킹 결과 보고서</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 1차 팀 프로젝트 -->
-    <div class="timeline-item">
-      <div class="timeline-date">2026년 진행 - 팀 프로젝트</div>
-      <div class="timeline-content">
-        <h4>📊 1차 팀 프로젝트 (인프라 기획 및 설계)</h4>
-        <p class="text-secondary mb-3">초기 인프라 기획안 및 구축 보고서입니다.</p>
-        <a href="어울림_보고서.pdf" target="_blank" class="btn btn-outline-danger fw-bold">📄 1차 프로젝트 보고서 보기</a>
-      </div>
-    </div>
-
-    <!-- 개인 실습 과제들 -->
-    <div class="timeline-item">
-      <div class="timeline-date">2026년 진행 - 개인 실습 과제</div>
-      <div class="timeline-content">
-        <h4>📝 주요 보안 및 인프라 실습 과제</h4>
-        <p class="text-secondary mb-3">부트캠프 수강 중 개인적으로 수행한 주요 모의해킹(CTF) 및 방어(Snort, Suricata, Wazuh) 실습 과제 결과물입니다.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="홍기수_보안 인프라 실습 과제3.pdf" target="_blank" class="btn btn-outline-dark fw-bold">📄 NIDS/NIPS 패킷 분석 실습</a>
-          <a href="홍기수_보안 인프라 실습 과제4.pdf" target="_blank" class="btn btn-outline-dark fw-bold">📄 웹 취약점 진단 및 로그 분석</a>
-          <a href="기업정보보호관리_과제_홍기수.pdf" target="_blank" class="btn btn-outline-secondary fw-bold">📄 기업정보보호관리 과제</a>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-
-  <h3 class="fw-bold border-bottom pb-2 mb-4 mt-5">📚 상세 학습 및 실습 기록</h3>
-  <div class="row mb-5">
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm border-primary">
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-primary">네트워크 구축</h5>
-          <p class="card-text text-secondary mb-3">Cisco, VPN, Firewall, pfSense</p>
-          <a href="network.html" class="btn btn-outline-primary w-100 fw-bold">상세페이지 보기</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm border-success">
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-success">시스템 운영</h5>
-          <p class="card-text text-secondary mb-3">Ubuntu, Windows Server, MariaDB</p>
-          <a href="system.html" class="btn btn-outline-success w-100 fw-bold">상세페이지 보기</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm border-danger">
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-danger">보안 실습</h5>
-          <p class="card-text text-secondary mb-3">DVWA, WebGoat, Wazuh, Metasploit</p>
-          <a href="security.html" class="btn btn-outline-danger w-100 fw-bold">상세페이지 보기</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm border-dark">
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-dark">악성코드 분석</h5>
-          <p class="card-text text-secondary mb-3">Flare VM, Static Malware Analysis</p>
-          <a href="malware.html" class="btn btn-outline-dark w-100 fw-bold">상세페이지 보기</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 튜터님 피드백 반영: 푸터 추가 -->
-<div class="footer">
   <div class="container">
-    <h4 class="fw-bold text-white mb-2">Hong Gi Su</h4>
-    <p>Infrastructure & Security Engineer Portfolio</p>
-    <p class="mt-3" style="font-size: 0.85rem; color: #7f8c8d;">© 2026. Hong Gi Su. All rights reserved.</p>
+    <h1>홍기수</h1>
+    <p class="subtitle">Infrastructure & Security Engineer</p>
+    <p class="desc">반도체응용 전공으로 다진 하드웨어 및 시스템 구조에 대한 이해도를 바탕으로, 가디언즈 정보보호 인프라 교육을 수료하며 탄탄한 IT 인프라 역량을 쌓았습니다. 취득한 네트워크관리사 2급 지식을 기반으로 네트워크 아키텍처 설계부터 서버 무결성 점검, 선제적 보안 관제까지 완벽하게 책임지는 엔지니어를 목표로 합니다.</p>
   </div>
+</div>
+
+<div class="container">
+  
+  <!-- 핵심 역량 (Core Capabilities) -->
+  <div class="section-container">
+    <h2 class="section-title">핵심 역량</h2>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-num">CAP • 01</div>
+        <h3 class="cap-title">보안 인프라 설계 및 구축</h3>
+        <p class="cap-desc">Cisco 장비 및 pfSense 방화벽을 활용하여 외부 위협으로부터 안전한 네트워크 토폴로지를 설계하고, 실무 수준의 인프라 망을 직접 구성할 수 있습니다.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">CAP • 02</div>
+        <h3 class="cap-title">침입 탐지 및 패킷 분석</h3>
+        <p class="cap-desc">Suricata와 Snort를 NIDS/NIPS로 운용하며 악의적인 트래픽 패턴을 분석하고, Wireshark를 통한 패킷 단위의 심층 분석으로 공격 페이로드를 식별합니다.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">CAP • 03</div>
+        <h3 class="cap-title">시스템 무결성 및 로그 관제</h3>
+        <p class="cap-desc">Wazuh(SIEM) 및 OSSEC을 연동하여 서버 무결성을 점검하고, 분산된 시스템 로그를 중앙 집중화하여 모니터링하는 관제 환경을 구축해본 경험이 있습니다.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">CAP • 04</div>
+        <h3 class="cap-title">취약점 진단 및 모의해킹</h3>
+        <p class="cap-desc">OWASP 기반의 웹 취약점(XSS, SQLi 등)을 진단하고, CTF(Mercury) 등 실전 모의해킹 과정을 통해 공격자의 시각에서 보안 위협을 선제적으로 파악합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 기술 스택 (Tech Stack) -->
+  <div class="section-container">
+    <h2 class="section-title">기술 스택</h2>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-category">네트워크 & 보안 장비</div>
+        <span class="tech-badge">Cisco</span>
+        <span class="tech-badge">pfSense</span>
+        <span class="tech-badge">GNS3</span>
+        <span class="tech-badge">VPN</span>
+        <span class="tech-badge">Firewall</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-category">보안 관제 & 모니터링</div>
+        <span class="tech-badge">Wazuh (SIEM)</span>
+        <span class="tech-badge">Snort</span>
+        <span class="tech-badge">Suricata</span>
+        <span class="tech-badge">Wireshark</span>
+        <span class="tech-badge">OSSEC</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-category">시스템 & 인프라</div>
+        <span class="tech-badge">Linux (Ubuntu/Kali)</span>
+        <span class="tech-badge">Windows Server</span>
+        <span class="tech-badge">VirtualBox</span>
+        <span class="tech-badge">MariaDB</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-category">언어 & 자격 검증</div>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Shell Script</span>
+        <span class="tech-badge">네트워크관리사 2급</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 주요 프로젝트 (Projects) -->
+  <div class="section-container">
+    <h2 class="section-title">주요 프로젝트</h2>
+
+    <!-- 프로젝트 1: 우수상 -->
+    <div class="project-card" style="border: 2px solid #0ea5e9;">
+      <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
+      <div class="project-meta">PRJ • 01 — 팀 프로젝트 / 인프라 구축 & 모의해킹</div>
+      <h3 class="project-title">가디언즈 2차 팀 프로젝트</h3>
+      <div class="project-tags">
+        <span class="project-tag">네트워크 설계</span>
+        <span class="project-tag">모의해킹</span>
+        <span class="project-tag">방어 인프라</span>
+      </div>
+      <ul class="project-desc-list">
+        <li><strong>보안 인프라 기획 및 설계:</strong> 가상화 환경을 활용한 기업용 보안 인프라 망 설계 및 세부 구축 계획 수립.</li>
+        <li><strong>모의해킹 및 취약점 분석:</strong> 구축된 환경을 대상으로 침투 테스트를 진행하고 실질적인 보안 취약점을 식별.</li>
+        <li><strong>우수상 수상 성과:</strong> 기획부터 모의해킹 대응 방안까지 체계적인 프로세스를 인정받아 부트캠프 프로젝트 우수상 수상.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 상장 원본 보기 →</a>
+        <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 프로젝트 계획서 →</a>
+        <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 모의해킹 보고서 →</a>
+      </div>
+    </div>
+
+    <!-- 프로젝트 2: 1차 프로젝트 -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
+      <div class="project-meta">PRJ • 02 — 팀 프로젝트 / 초기 인프라 설계</div>
+      <h3 class="project-title">가디언즈 1차 팀 프로젝트</h3>
+      <div class="project-tags">
+        <span class="project-tag">인프라 기획</span>
+        <span class="project-tag">망 분리</span>
+      </div>
+      <ul class="project-desc-list">
+        <li><strong>인프라 아키텍처 수립:</strong> 요구사항 분석을 통한 초기 네트워크 망 구조 및 서버 인프라 설계 보고서 작성.</li>
+      </ul>
+      <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 결과 보고서 보기 →</a>
+    </div>
+
+    <!-- 프로젝트 3: 개인 실습 과제 -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
+      <div class="project-meta">PRJ • 03 — 개인 실습 / 보안 장비 및 관제</div>
+      <h3 class="project-title">보안 인프라 및 모의해킹 실습</h3>
+      <div class="project-tags">
+        <span class="project-tag">Snort/Suricata</span>
+        <span class="project-tag">Wazuh</span>
+        <span class="project-tag">CTF</span>
+      </div>
+      <ul class="project-desc-list">
+        <li><strong>NIDS/NIPS 룰셋 기반 탐지:</strong> Snort와 Suricata를 활용하여 패킷 스니핑 및 비정상 트래픽 탐지/차단 실습.</li>
+        <li><strong>웹 취약점 진단 및 로그 통합:</strong> OWASP 기반 취약점 실습 및 Wazuh 연동을 통한 보안 이벤트 중앙 모니터링 실습.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="홍기수_보안 인프라 실습 과제3.pdf" target="_blank" class="btn-custom">📄 실습 과제 3 (IDS/IPS) →</a>
+        <a href="홍기수_보안 인프라 실습 과제4.pdf" target="_blank" class="btn-custom">📄 실습 과제 4 (CTF/Wazuh) →</a>
+        <a href="기업정보보호관리_과제_홍기수.pdf" target="_blank" class="btn-custom">📄 기업정보보호관리 과제 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026. Hong Gi Su. All rights reserved.</p>
 </div>
 
 </body>
