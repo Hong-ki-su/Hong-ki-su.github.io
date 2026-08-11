@@ -81,27 +81,9 @@ cat > index.html << 'HTML_EOF'
   </div>
 
   <div class="section-container">
-    <h2 class="section-title">기술 스택</h2>
-    <div class="tech-grid">
-      <div class="tech-card">
-        <div class="tech-category">보안 관제 & 탐지</div>
-        <span class="tech-badge">Wazuh (SIEM)</span><span class="tech-badge">Snort (NIDS/NIPS)</span><span class="tech-badge">Suricata</span><span class="tech-badge">OSSEC</span>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">분석 & 진단 도구</div>
-        <span class="tech-badge">FLARE VM</span><span class="tech-badge">Procmon/Sysmon</span><span class="tech-badge">Wireshark</span><span class="tech-badge">OWASP</span>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">시스템 & 스크립트</div>
-        <span class="tech-badge">Linux (Ubuntu)</span><span class="tech-badge">Windows Server</span><span class="tech-badge">Python</span><span class="tech-badge">Shell Script</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 2차 프로젝트 (우수상) -->
+    <!-- 2차 프로젝트 (우수상) : 2차 모의해킹 버튼 원상복구 -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 모의해킹 및 방어 인프라</div>
@@ -113,11 +95,12 @@ cat > index.html << 'HTML_EOF'
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 우수상 상장 보기 →</a>
-        <a href="final_hacking.pdf" target="_blank" class="btn-custom">📄 모의해킹 결과 보고서 →</a>
+        <!-- 💡 2차 프로젝트(Eazyhotel) 모의해킹 보고서 링크 복구 완료! -->
+        <a href="2nd_hacking.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
 
-    <!-- 3차 파이널 프로젝트 (수료) -->
+    <!-- 3차 파이널 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 통합 로그 분석 및 악성코드 분석</div>
@@ -128,10 +111,10 @@ cat > index.html << 'HTML_EOF'
         <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 에러 방지를 위해 단순화된 영문 파일명 적용 -->
-        <a href="final_ppt.pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
-        <a href="final_hacking.pdf" target="_blank" class="btn-custom">📄 모의해킹 결과 보고서 →</a>
-        <a href="final_malware.pdf" target="_blank" class="btn-custom">📄 악성코드 분석 보고서 →</a>
+        <!-- 💡 3차 프로젝트 전용 3종 파일 완벽 분리 연동 -->
+        <a href="3rd_ppt.pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
+        <a href="3rd_hacking.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
+        <a href="3rd_malware.pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
       </div>
     </div>
 
@@ -149,32 +132,9 @@ cat > index.html << 'HTML_EOF'
       </div>
     </div>
 
-    <!-- 개인 실습 -->
-    <div class="project-card">
-      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
-      <div class="project-meta">개인 실습 / 보안 관제 및 로그 통합</div>
-      <h3 class="project-title">침입 탐지 시스템 및 로그 분석 실습</h3>
-      <div class="project-tags"><span class="project-tag">Wazuh</span><span class="project-tag">Snort</span><span class="project-tag">CTF 진단</span></div>
-      <ul class="project-desc-list">
-        <li><strong>NIDS/NIPS 룰셋 기반 탐지:</strong> Snort와 Suricata를 활용하여 악성 패킷 스니핑 및 비정상 트래픽 탐지/차단 정책 실습을 수행했습니다.</li>
-      </ul>
-      <div class="d-flex flex-wrap gap-2">
-        <a href="홍기수_보안 인프라 실습 과제3.pdf" target="_blank" class="btn-custom">📄 실습 과제 3 (IDS/IPS 분석) →</a>
-        <a href="홍기수_보안 인프라 실습 과제4.pdf" target="_blank" class="btn-custom">📄 실습 과제 4 (CTF/Wazuh) →</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
-    <h2 class="section-title">상세 학습 기록</h2>
-    <div class="cap-grid">
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습 관제</h3><a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3><a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center">학습 기록 보기 →</a></div>
-    </div>
   </div>
 </div>
-<div class="footer"><p>© 2026. Hong Gi Su. (Network Security Monitoring)</p></div>
+<div class="footer"><p>© 2026. Hong Gi Su. All rights reserved.</p></div>
 </body>
 </html>
 HTML_EOF
@@ -234,53 +194,9 @@ cat > engineer.html << 'HTML_EOF'
 </div>
 <div class="container">
   <div class="section-container">
-    <h2 class="section-title">핵심 역량</h2>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="cap-num">CAP • 01</div>
-        <h3 class="cap-title">보안 인프라 아키텍처 설계</h3>
-        <p class="cap-desc">Cisco 라우터/스위치 및 방화벽(pfSense)을 활용하여 기업 요구사항에 맞는 안전한 토폴로지와 망 분리 환경을 직접 설계 및 구축할 수 있습니다.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">CAP • 02</div>
-        <h3 class="cap-title">서버 운영 체제 및 시스템 관리</h3>
-        <p class="cap-desc">Linux(Ubuntu)와 Windows Server를 기반으로 사내 서비스 인프라를 가상화(VirtualBox, GNS3) 환경에서 안정적으로 구축하고 운영합니다.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">CAP • 03</div>
-        <h3 class="cap-title">보안 관리 체계 수립</h3>
-        <p class="cap-desc">단순한 구축을 넘어 기업 정보보호 관리 체계(ISMS)의 중요성을 이해하고, 시스템 무결성 검증을 인프라 설계 단계부터 고려합니다.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">CAP • 04</div>
-        <h3 class="cap-title">트러블슈팅 및 프로세스 자동화</h3>
-        <p class="cap-desc">인프라 구축 중 발생하는 네트워크/서버 장애 상황에서 근본 원인을 추적하는 문제 해결 능력을 갖췄으며, 쉘 스크립트 기반 관리를 지향합니다.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
-    <h2 class="section-title">기술 스택</h2>
-    <div class="tech-grid">
-      <div class="tech-card">
-        <div class="tech-category">네트워크 장비 & 인프라</div>
-        <span class="tech-badge">Cisco</span><span class="tech-badge">pfSense</span><span class="tech-badge">GNS3</span><span class="tech-badge">VPN (IPsec/SSL)</span>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">서버 운영 & 가상화</div>
-        <span class="tech-badge">Linux (Ubuntu)</span><span class="tech-badge">Windows Server</span><span class="tech-badge">VirtualBox</span><span class="tech-badge">MariaDB</span>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">자동화 & 보안 기술</div>
-        <span class="tech-badge">Shell Script</span><span class="tech-badge">Python</span><span class="tech-badge">OSSEC</span><span class="tech-badge">Firewall Policies</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 2차 프로젝트 (우수상) -->
+    <!-- 2차 프로젝트 -->
     <div class="project-card" style="border: 2px solid #10b981;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 인프라 기획 및 아키텍처 구축</div>
@@ -292,11 +208,13 @@ cat > engineer.html << 'HTML_EOF'
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">🏅 우수상 상장 보기 →</a>
-        <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 인프라 설계 계획서 →</a>
+        <!-- 💡 2차 모의해킹 보고서 + 설계 계획서 완벽 분리 배치 -->
+        <a href="2nd_hacking.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
+        <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 2차 인프라 설계 계획서 →</a>
       </div>
     </div>
 
-    <!-- 3차 파이널 프로젝트 (수료) -->
+    <!-- 3차 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 보안 아키텍처 및 망 분리 구축</div>
@@ -307,10 +225,10 @@ cat > engineer.html << 'HTML_EOF'
         <li><strong>통합 보안 솔루션 인프라 구성:</strong> 인프라 전반에 Snort(IDS/IPS) 및 Wazuh(SIEM) 서버를 유기적으로 연동하여 시스템 무결성 점검 체계를 완성하고 안전한 인프라 뼈대를 구축했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 에러 방지를 위해 단순화된 영문 파일명 적용 -->
-        <a href="final_ppt.pptx" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">📊 3차 파이널 발표 자료 (PPT) →</a>
-        <a href="final_hacking.pdf" target="_blank" class="btn-custom">📄 인프라 및 모의해킹 보고서 →</a>
-        <a href="final_malware.pdf" target="_blank" class="btn-custom">📄 인프라 악성행위 분석 보고서 →</a>
+        <!-- 💡 3차 프로젝트 3종 세트 -->
+        <a href="3rd_ppt.pptx" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">📊 3차 파이널 발표 자료 (PPT) →</a>
+        <a href="3rd_hacking.pdf" target="_blank" class="btn-custom">📄 3차 인프라 및 모의해킹 보고서 →</a>
+        <a href="3rd_malware.pdf" target="_blank" class="btn-custom">📄 3차 인프라 악성행위 분석 보고서 →</a>
       </div>
     </div>
 
@@ -327,15 +245,6 @@ cat > engineer.html << 'HTML_EOF'
         <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 인프라 구축 보고서 →</a>
       </div>
     </div>
-
-  </div>
-
-  <div class="section-container">
-    <h2 class="section-title">상세 학습 기록</h2>
-    <div class="cap-grid">
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center" style="border-color: #0ea5e9; color: #0ea5e9;">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3><a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">학습 기록 보기 →</a></div>
-    </div>
   </div>
 </div>
 <div class="footer"><p>© 2026. Hong Gi Su. (Security Infrastructure Engineering)</p></div>
@@ -343,9 +252,7 @@ cat > engineer.html << 'HTML_EOF'
 </html>
 HTML_EOF
 
-# ==========================================
-# 3. 상세페이지 자동 생성 로직 및 "스마트 뒤로가기" 적용
-# ==========================================
+# 상세페이지 생성 로직 유지
 rm -f tmp_*.txt
 > tmp_network.txt
 > tmp_system.txt
@@ -431,4 +338,3 @@ create_detail_page "security.html" "🛡️ 모의해킹 및 보안 관제 (Kali
 create_detail_page "malware.html" "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.txt"
 
 rm -f tmp_*.txt
-echo "안전한 파일명 변경 및 스크립트 덮어쓰기 완료!"
