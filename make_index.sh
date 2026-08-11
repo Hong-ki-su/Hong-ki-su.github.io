@@ -112,7 +112,8 @@ cat > index.html << 'HTML_EOF'
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 우수상 상장 보기 →</a>
-        <!-- 💡 2차 원본 파일명 정확하게 연결 -->
+        <!-- 💡 관제 페이지에도 '2차 인프라 설계 계획서' 완벽 복구 -->
+        <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 2차 인프라 설계 계획서 →</a>
         <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
@@ -127,7 +128,6 @@ cat > index.html << 'HTML_EOF'
         <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 PPTX를 웹에서 바로 열어주는 MS 뷰어 적용 -->
         <a href="https://view.officeapps.live.com/op/view.aspx?src=https://hong-ki-su.github.io/4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
         <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
         <a href="또롱이_악성코드_분석_보고서%20(1).pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
@@ -165,10 +165,10 @@ cat > index.html << 'HTML_EOF'
   <div class="section-container">
     <h2 class="section-title">상세 학습 기록</h2>
     <div class="cap-grid">
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center" style="border-color: #0ea5e9; color: #0ea5e9;">학습 기록 보기 →</a></div>
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3><a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">학습 기록 보기 →</a></div>
       <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습 관제</h3><a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">학습 기록 보기 →</a></div>
       <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3><a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3><a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">학습 기록 보기 →</a></div>
     </div>
   </div>
 </div>
@@ -340,7 +340,7 @@ cat > engineer.html << 'HTML_EOF'
 </html>
 HTML_EOF
 
-# 상세페이지 생성 로직 (유지)
+# 상세페이지 생성 로직 
 rm -f tmp_*.txt
 > tmp_network.txt
 > tmp_system.txt
