@@ -75,9 +75,27 @@
   </div>
 
   <div class="section-container">
+    <h2 class="section-title">기술 스택</h2>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-category">보안 관제 & 탐지</div>
+        <span class="tech-badge">Wazuh (SIEM)</span><span class="tech-badge">Snort (NIDS/NIPS)</span><span class="tech-badge">Suricata</span><span class="tech-badge">OSSEC</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-category">분석 & 진단 도구</div>
+        <span class="tech-badge">FLARE VM</span><span class="tech-badge">Procmon/Sysmon</span><span class="tech-badge">Wireshark</span><span class="tech-badge">OWASP</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-category">시스템 & 스크립트</div>
+        <span class="tech-badge">Linux (Ubuntu)</span><span class="tech-badge">Windows Server</span><span class="tech-badge">Python</span><span class="tech-badge">Shell Script</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 2차 프로젝트 (우수상) : 2차 모의해킹 버튼 원상복구 -->
+    <!-- 2차 프로젝트 (우수상) -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 모의해킹 및 방어 인프라</div>
@@ -89,12 +107,12 @@
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 우수상 상장 보기 →</a>
-        <!-- 💡 2차 프로젝트(Eazyhotel) 모의해킹 보고서 링크 복구 완료! -->
-        <a href="2nd_hacking.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
+        <!-- 💡 2차 모의해킹 결과보고서 원상복구 -->
+        <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
 
-    <!-- 3차 파이널 프로젝트 -->
+    <!-- 3차 파이널 프로젝트 (수료) -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 통합 로그 분석 및 악성코드 분석</div>
@@ -105,10 +123,10 @@
         <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 3차 프로젝트 전용 3종 파일 완벽 분리 연동 -->
-        <a href="3rd_ppt.pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
-        <a href="3rd_hacking.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
-        <a href="3rd_malware.pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
+        <!-- 💡 기수님이 업로드하실 3차 파일명 그대로 세팅 -->
+        <a href="4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5)_3.pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
+        <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서_3.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
+        <a href="또롱이_악성코드_분석_보고서%20(1)_3.pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
       </div>
     </div>
 
@@ -126,8 +144,31 @@
       </div>
     </div>
 
+    <!-- 개인 실습 -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
+      <div class="project-meta">개인 실습 / 보안 관제 및 로그 통합</div>
+      <h3 class="project-title">침입 탐지 시스템 및 로그 분석 실습</h3>
+      <div class="project-tags"><span class="project-tag">Wazuh</span><span class="project-tag">Snort</span><span class="project-tag">CTF 진단</span></div>
+      <ul class="project-desc-list">
+        <li><strong>NIDS/NIPS 룰셋 기반 탐지:</strong> Snort와 Suricata를 활용하여 악성 패킷 스니핑 및 비정상 트래픽 탐지/차단 정책 실습을 수행했습니다.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="홍기수_보안 인프라 실습 과제3.pdf" target="_blank" class="btn-custom">📄 실습 과제 3 (IDS/IPS 분석) →</a>
+        <a href="홍기수_보안 인프라 실습 과제4.pdf" target="_blank" class="btn-custom">📄 실습 과제 4 (CTF/Wazuh) →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <h2 class="section-title">상세 학습 기록</h2>
+    <div class="cap-grid">
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습 관제</h3><a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">학습 기록 보기 →</a></div>
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3><a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">학습 기록 보기 →</a></div>
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center">학습 기록 보기 →</a></div>
+    </div>
   </div>
 </div>
-<div class="footer"><p>© 2026. Hong Gi Su. All rights reserved.</p></div>
+<div class="footer"><p>© 2026. Hong Gi Su. (Network Security Monitoring)</p></div>
 </body>
 </html>
