@@ -101,7 +101,6 @@ cat > index.html << 'HTML_EOF'
   <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 💡 2차 프로젝트 (원상복구 유지) -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 모의해킹 및 방어 인프라</div>
@@ -113,12 +112,11 @@ cat > index.html << 'HTML_EOF'
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 우수상 상장 보기 →</a>
-        <!-- 💡 2차 원본 파일명 정확하게 일치 -->
+        <!-- 💡 2차 원본 파일명 정확하게 연결 -->
         <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
 
-    <!-- 💡 3차 파이널 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 통합 로그 분석 및 악성코드 분석</div>
@@ -129,14 +127,13 @@ cat > index.html << 'HTML_EOF'
         <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 3차 기수님이 올리신 원본 파일명 완벽 일치 -->
-        <a href="4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
+        <!-- 💡 PPTX를 웹에서 바로 열어주는 MS 뷰어 적용 -->
+        <a href="https://view.officeapps.live.com/op/view.aspx?src=https://hong-ki-su.github.io/4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
         <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
         <a href="또롱이_악성코드_분석_보고서%20(1).pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
       </div>
     </div>
 
-    <!-- 💡 1차 프로젝트 (원상복구 유지) -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">팀 프로젝트 / 초기 인프라 설계</div>
@@ -150,7 +147,6 @@ cat > index.html << 'HTML_EOF'
       </div>
     </div>
 
-    <!-- 개인 실습 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">개인 실습 / 보안 관제 및 로그 통합</div>
@@ -282,7 +278,6 @@ cat > engineer.html << 'HTML_EOF'
   <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 💡 2차 프로젝트 (원상복구 유지) -->
     <div class="project-card" style="border: 2px solid #10b981;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 인프라 기획 및 아키텍처 구축</div>
@@ -295,12 +290,10 @@ cat > engineer.html << 'HTML_EOF'
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">🏅 우수상 상장 보기 →</a>
         <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 2차 인프라 설계 계획서 →</a>
-        <!-- 1, 2차 원본 파일명 유지 -->
         <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
 
-    <!-- 💡 3차 파이널 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 보안 아키텍처 및 망 분리 구축</div>
@@ -311,14 +304,12 @@ cat > engineer.html << 'HTML_EOF'
         <li><strong>통합 보안 솔루션 인프라 구성:</strong> 인프라 전반에 Snort(IDS/IPS) 및 Wazuh(SIEM) 서버를 유기적으로 연동하여 시스템 무결성 점검 체계를 완성하고 안전한 인프라 뼈대를 구축했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 기수님이 올리신 원본 파일명 완벽 일치 (띄어쓰기만 %20 처리) -->
-        <a href="4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">📊 3차 파이널 발표 자료 (PPT) →</a>
+        <a href="https://view.officeapps.live.com/op/view.aspx?src=https://hong-ki-su.github.io/4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">📊 3차 파이널 발표 자료 (PPT) →</a>
         <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서.pdf" target="_blank" class="btn-custom">📄 3차 인프라 및 모의해킹 보고서 →</a>
         <a href="또롱이_악성코드_분석_보고서%20(1).pdf" target="_blank" class="btn-custom">📄 3차 인프라 악성행위 분석 보고서 →</a>
       </div>
     </div>
 
-    <!-- 💡 1차 프로젝트 (원상복구 유지) -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">팀 프로젝트 / 초기 인프라 설계</div>
