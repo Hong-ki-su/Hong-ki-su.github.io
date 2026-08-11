@@ -50,7 +50,7 @@ cat > index.html << 'HTML_EOF'
   <div class="container">
     <h1>홍기수</h1>
     <p class="subtitle">Network Security Monitoring Engineer</p>
-    <p class="desc">가디언즈 정보보호 교육을 통해 침입 탐지와 로그 분석 실무를 익힌 네트워크 관제 엔지니어입니다. 쏟아지는 트래픽 속에서 비정상 패킷의 흐름을 읽어내고, 근본 원인을 규명할 때까지 끝까지 파고드는 끈기를 강점으로 삼고 있습니다.</p>
+    <p class="desc">가디언즈 정보보호 인프라 교육 과정을 성공적으로 수료하며 침입 탐지와 로그 분석 실무를 완성한 네트워크 관제 엔지니어입니다. 쏟아지는 트래픽 속에서 비정상 패킷의 흐름을 읽어내고, 근본 원인을 규명할 때까지 끝까지 파고드는 끈기를 강점으로 삼고 있습니다.</p>
   </div>
 </div>
 <div class="container">
@@ -69,8 +69,8 @@ cat > index.html << 'HTML_EOF'
       </div>
       <div class="cap-card">
         <div class="cap-num">CAP • 03</div>
-        <h3 class="cap-title">취약점 진단 및 모의해킹</h3>
-        <p class="cap-desc">OWASP 기반의 웹 취약점 진단과 CTF(Mercury) 실전 모의해킹 과정을 통해 공격자의 시각에서 보안 위협을 선제적으로 파악하고 방어 대책을 수립합니다.</p>
+        <h3 class="cap-title">취약점 진단 및 악성코드 분석</h3>
+        <p class="cap-desc">OWASP 기반 웹 취약점을 진단하고 방어 룰셋을 수립하며, FLARE VM 기반에서 정적·동적 분석 도구를 활용하여 악성코드의 행위와 시스템 변조를 식별합니다.</p>
       </div>
       <div class="cap-card">
         <div class="cap-num">CAP • 04</div>
@@ -88,8 +88,8 @@ cat > index.html << 'HTML_EOF'
         <span class="tech-badge">Wazuh (SIEM)</span><span class="tech-badge">Snort (NIDS/NIPS)</span><span class="tech-badge">Suricata</span><span class="tech-badge">OSSEC</span>
       </div>
       <div class="tech-card">
-        <div class="tech-category">패킷 분석 & 진단</div>
-        <span class="tech-badge">Wireshark</span><span class="tech-badge">Kali Linux</span><span class="tech-badge">Metasploit</span><span class="tech-badge">OWASP</span>
+        <div class="tech-category">분석 & 진단 도구</div>
+        <span class="tech-badge">FLARE VM</span><span class="tech-badge">Procmon/Sysmon</span><span class="tech-badge">Wireshark</span><span class="tech-badge">OWASP</span>
       </div>
       <div class="tech-card">
         <div class="tech-category">시스템 & 스크립트</div>
@@ -100,6 +100,8 @@ cat > index.html << 'HTML_EOF'
 
   <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
+
+    <!-- 2차 프로젝트 (우수상) -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 모의해킹 및 방어 인프라</div>
@@ -114,14 +116,46 @@ cat > index.html << 'HTML_EOF'
         <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 모의해킹 결과 보고서 →</a>
       </div>
     </div>
+
+    <!-- 3차 파이널 프로젝트 (수료) -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
+      <div class="project-meta">팀 프로젝트 / 통합 로그 분석 및 악성코드 분석</div>
+      <h3 class="project-title">공공자전거 통합운영 서비스 (파이널 프로젝트)</h3>
+      <div class="project-tags"><span class="project-tag">Wazuh/Snort</span><span class="project-tag">로그 상관분석</span><span class="project-tag">악성코드 분석</span></div>
+      <ul class="project-desc-list">
+        <li><strong>보안 관제 및 룰셋 적용:</strong> Snort(IDS/IPS) 및 Wazuh(SIEM)를 구축하고, 웹 모의해킹(OWASP Top 5) 공격에 대한 실시간 탐지/차단 룰을 직접 설정하여 통합 로그 모니터링 환경을 구성했습니다.</li>
+        <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 파이널 통합 발표 자료 (PPT) →</a>
+        <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서_2.pdf" target="_blank" class="btn-custom">📄 모의해킹 결과 보고서 →</a>
+        <a href="또롱이_악성코드_분석_보고서 (1)_2.pdf" target="_blank" class="btn-custom">📄 악성코드 분석 보고서 →</a>
+      </div>
+    </div>
+
+    <!-- 1차 프로젝트 -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
+      <div class="project-meta">팀 프로젝트 / 초기 인프라 설계</div>
+      <h3 class="project-title">가디언즈 1차 네트워크 아키텍처 수립</h3>
+      <div class="project-tags"><span class="project-tag">네트워크 기획</span><span class="project-tag">인프라 아키텍처</span></div>
+      <ul class="project-desc-list">
+        <li><strong>네트워크 아키텍처 수립:</strong> 요구사항 분석을 통해 라우터/스위치 기반의 초기 네트워크 토폴로지를 설계하고 문서화했습니다.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 인프라 구축 보고서 →</a>
+      </div>
+    </div>
+
+    <!-- 개인 실습 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">개인 실습 / 보안 관제 및 로그 통합</div>
       <h3 class="project-title">침입 탐지 시스템 및 로그 분석 실습</h3>
       <div class="project-tags"><span class="project-tag">Wazuh</span><span class="project-tag">Snort</span><span class="project-tag">CTF 진단</span></div>
       <ul class="project-desc-list">
-        <li><strong>NIDS/NIPS 룰셋 기반 탐지:</strong> Snort와 Suricata를 활용하여 악성 패킷 스니핑 및 비정상 트래픽 탐지/차단 정책 실습.</li>
-        <li><strong>보안 로그 통합:</strong> 취약점(CTF) 진단 환경을 구성하고 Wazuh와 연동하여 발생하는 보안 이벤트를 중앙에서 모니터링하는 실습 수행.</li>
+        <li><strong>NIDS/NIPS 룰셋 기반 탐지:</strong> Snort와 Suricata를 활용하여 악성 패킷 스니핑 및 비정상 트래픽 탐지/차단 정책 실습을 수행했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="홍기수_보안 인프라 실습 과제3.pdf" target="_blank" class="btn-custom">📄 실습 과제 3 (IDS/IPS 분석) →</a>
@@ -194,7 +228,7 @@ cat > engineer.html << 'HTML_EOF'
   <div class="container">
     <h1>홍기수</h1>
     <p class="subtitle">Security Infrastructure Engineer</p>
-    <p class="desc">가디언즈 정보보호 인프라 교육과 네트워크관리사 2급 지식을 바탕으로 IT 인프라 아키텍처를 설계하는 보안 인프라 엔지니어입니다. 탄탄한 망 분리 설계부터 시스템 서버(Linux/Windows) 운영까지, 어떠한 장애에도 흔들리지 않는 튼튼한 뼈대를 구축하는 것을 목표로 합니다.</p>
+    <p class="desc">가디언즈 정보보호 인프라 교육 수료 및 네트워크관리사 2급 지식을 바탕으로 IT 인프라 아키텍처를 설계하는 보안 인프라 엔지니어입니다. 탄탄한 망 분리 설계부터 시스템 서버(Linux/Windows) 운영까지, 어떠한 장애에도 흔들리지 않는 튼튼한 뼈대를 구축하는 것을 목표로 합니다.</p>
   </div>
 </div>
 <div class="container">
@@ -244,6 +278,8 @@ cat > engineer.html << 'HTML_EOF'
 
   <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
+
+    <!-- 2차 프로젝트 (우수상) -->
     <div class="project-card" style="border: 2px solid #10b981;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 인프라 기획 및 아키텍처 구축</div>
@@ -258,6 +294,25 @@ cat > engineer.html << 'HTML_EOF'
         <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 인프라 설계 계획서 →</a>
       </div>
     </div>
+
+    <!-- 3차 파이널 프로젝트 (수료) -->
+    <div class="project-card">
+      <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
+      <div class="project-meta">팀 프로젝트 / 보안 아키텍처 및 망 분리 구축</div>
+      <h3 class="project-title">공공자전거 서비스 통합 인프라 구축 (파이널 프로젝트)</h3>
+      <div class="project-tags"><span class="project-tag">방화벽/VPN</span><span class="project-tag">망 분리(VLAN)</span><span class="project-tag">통합 보안 솔루션</span></div>
+      <ul class="project-desc-list">
+        <li><strong>보안 인프라 아키텍처 설계:</strong> 내부망(DB/LOG)과 DMZ(WEB/WAF) 간의 VLAN 기반 네트워크 망 분리를 설계하고, pfSense 방화벽을 구축하여 포트 포워딩 및 외부 접근을 엄격히 통제했습니다.</li>
+        <li><strong>통합 보안 솔루션 인프라 구성:</strong> 인프라 전반에 Snort(IDS/IPS) 및 Wazuh(SIEM) 서버를 유기적으로 연동하여 시스템 무결성 점검 체계를 완성하고 안전한 인프라 뼈대를 구축했습니다.</li>
+      </ul>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#10b981; color:#fff; border-color:#10b981;">📊 파이널 통합 발표 자료 (PPT) →</a>
+        <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서_2.pdf" target="_blank" class="btn-custom">📄 인프라 및 모의해킹 보고서 →</a>
+        <a href="또롱이_악성코드_분석_보고서 (1)_2.pdf" target="_blank" class="btn-custom">📄 인프라 악성행위 분석 보고서 →</a>
+      </div>
+    </div>
+
+    <!-- 1차 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">팀 프로젝트 / 초기 인프라 설계</div>
@@ -265,13 +320,12 @@ cat > engineer.html << 'HTML_EOF'
       <div class="project-tags"><span class="project-tag">네트워크 기획</span><span class="project-tag">인프라 아키텍처</span></div>
       <ul class="project-desc-list">
         <li><strong>네트워크 아키텍처 수립:</strong> 요구사항 분석을 통해 라우터/스위치 기반의 초기 네트워크 토폴로지 설계.</li>
-        <li><strong>구축 보고서 작성:</strong> IP 대역 할당 및 서브네팅, 방화벽 규칙을 문서화하여 체계적인 설계 역량 배양.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="어울림_보고서.pdf" target="_blank" class="btn-custom">📄 1차 인프라 구축 보고서 →</a>
-        <a href="기업정보보호관리_과제_홍기수.pdf" target="_blank" class="btn-custom">📄 기업정보보호관리 체계 과제 →</a>
       </div>
     </div>
+
   </div>
 
   <div class="section-container">
@@ -288,7 +342,7 @@ cat > engineer.html << 'HTML_EOF'
 HTML_EOF
 
 # ==========================================
-# 3. 상세페이지(서브페이지) 자동 생성 로직 및 "스마트 뒤로가기" 적용
+# 3. 상세페이지 자동 생성 로직 및 "스마트 뒤로가기" 적용
 # ==========================================
 rm -f tmp_*.txt
 > tmp_network.txt
@@ -350,7 +404,6 @@ create_detail_page() {
 <div class="container mt-5 mb-5" style="min-height: 60vh;">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold" style="color: #0f172a;">📁 상세 학습 기록</h2>
-    <!-- 💡 수정된 부분: 스마트 뒤로가기 버튼 적용 -->
     <a href="javascript:void(0);" onclick="if(document.referrer.includes('engineer')){window.location.href='engineer.html';}else{window.location.href='index.html';}" class="btn btn-outline-secondary fw-bold">⬅ 이전 페이지로 돌아가기</a>
   </div>
   <div class="card shadow-sm" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
@@ -376,4 +429,4 @@ create_detail_page "security.html" "🛡️ 모의해킹 및 보안 관제 (Kali
 create_detail_page "malware.html" "🦠 악성코드 분석 (FLARE-VM, Malware Analysis)" "dark" "tmp_malware.txt"
 
 rm -f tmp_*.txt
-echo "스마트 뒤로가기 기능이 포함된 포트폴리오 생성 준비 완료!"
+echo "3차 파이널 프로젝트 업데이트 완료!"
