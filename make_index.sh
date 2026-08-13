@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # ==========================================
 # 1. [관제 직무용] 메인 페이지 (index.html) 생성
 # ==========================================
@@ -51,6 +50,12 @@ cat > index.html << 'HTML_EOF'
     <h1>홍기수</h1>
     <p class="subtitle">Network Security Monitoring Engineer</p>
     <p class="desc">가디언즈 정보보호 인프라 교육 과정을 성공적으로 수료하며 침입 탐지와 로그 분석 실무를 완성한 네트워크 관제 엔지니어입니다. 쏟아지는 트래픽 속에서 비정상 패킷의 흐름을 읽어내고, 근본 원인을 규명할 때까지 끝까지 파고드는 끈기를 강점으로 삼고 있습니다.</p>
+    
+    <!-- 💡 국비 수료증 버튼을 가장 눈에 띄는 맨 위에 추가! -->
+    <div style="margin-top: 25px;">
+      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 가디언즈 국비 교육 공식 수료증 확인하기 →</a>
+    </div>
+
   </div>
 </div>
 <div class="container">
@@ -101,7 +106,6 @@ cat > index.html << 'HTML_EOF'
   <div class="section-container">
     <h2 class="section-title">주요 실무 과제 및 프로젝트</h2>
 
-    <!-- 💡 2차 프로젝트 (우수상) : 메인 페이지 버튼 3개 완벽 복구 -->
     <div class="project-card" style="border: 2px solid #0ea5e9;">
       <div class="project-status" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">🥇 우수상 수상</div>
       <div class="project-meta">팀 프로젝트 / 모의해킹 및 방어 인프라</div>
@@ -113,13 +117,11 @@ cat > index.html << 'HTML_EOF'
       </ul>
       <div class="d-flex flex-wrap gap-2">
         <a href="2차프로젝트 우수상_상장.jpg" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">🏅 우수상 상장 보기 →</a>
-        <!-- 💡 누락되었던 2차 인프라 설계 계획서 완벽 복구 완료 -->
         <a href="2_2지(easy)하조_2차팀프로젝트계획서.pdf" target="_blank" class="btn-custom">📄 2차 인프라 설계 계획서 →</a>
         <a href="3_2지(easy)하조_모의해킹결과보고서.pdf" target="_blank" class="btn-custom">📄 2차 모의해킹 결과 보고서 →</a>
       </div>
     </div>
 
-    <!-- 💡 3차 파이널 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">수료 프로젝트</div>
       <div class="project-meta">팀 프로젝트 / 통합 로그 분석 및 악성코드 분석</div>
@@ -130,14 +132,12 @@ cat > index.html << 'HTML_EOF'
         <li><strong>악성코드 정적/동적 분석:</strong> FLARE VM 환경에서 악성행위 시뮬레이터(PyInstaller)를 대상으로 PEiD, Procmon 등을 활용해 파일 조작 및 JSON 운영 데이터 변조 행위를 집중 분석하고 대응 방안을 도출했습니다.</li>
       </ul>
       <div class="d-flex flex-wrap gap-2">
-        <!-- 💡 3차 원본 파일명 및 MS 뷰어 적용 완료 -->
         <a href="https://view.officeapps.live.com/op/view.aspx?src=https://hong-ki-su.github.io/4팀_사뿐히뚫조_3차_프로젝트_결과보고서_(5).pptx" target="_blank" class="btn-custom" style="background:#0ea5e9; color:#fff;">📊 3차 파이널 발표 자료 (PPT) →</a>
         <a href="4팀_사뿐히뚫조_최종_모의해킹_결과보고서.pdf" target="_blank" class="btn-custom">📄 3차 모의해킹 결과 보고서 →</a>
         <a href="또롱이_악성코드_분석_보고서%20(1).pdf" target="_blank" class="btn-custom">📄 3차 악성코드 분석 보고서 →</a>
       </div>
     </div>
 
-    <!-- 1차 프로젝트 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">팀 프로젝트 / 초기 인프라 설계</div>
@@ -151,7 +151,6 @@ cat > index.html << 'HTML_EOF'
       </div>
     </div>
 
-    <!-- 개인 실습 -->
     <div class="project-card">
       <div class="project-status" style="background: #f1f5f9; color: #475569; border-color: #e2e8f0;">완료</div>
       <div class="project-meta">개인 실습 / 보안 관제 및 로그 통합</div>
@@ -170,10 +169,10 @@ cat > index.html << 'HTML_EOF'
   <div class="section-container">
     <h2 class="section-title">상세 학습 기록</h2>
     <div class="cap-grid">
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center" style="border-color: #0ea5e9; color: #0ea5e9;">학습 기록 보기 →</a></div>
+      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3><a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">학습 기록 보기 →</a></div>
       <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #ef4444;">🛡️ 보안 실습 관제</h3><a href="security.html" class="btn-custom w-100 justify-content-center" style="border-color: #ef4444; color: #ef4444;">학습 기록 보기 →</a></div>
       <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #334155;">🦠 악성코드 분석</h3><a href="malware.html" class="btn-custom w-100 justify-content-center" style="border-color: #334155; color: #334155;">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #0ea5e9;">🌐 네트워크 구축</h3><a href="network.html" class="btn-custom w-100 justify-content-center">학습 기록 보기 →</a></div>
-      <div class="cap-card" style="text-align: center;"><h3 class="cap-title" style="color: #10b981;">🖥️ 시스템 운영</h3><a href="system.html" class="btn-custom w-100 justify-content-center" style="border-color: #10b981; color: #10b981;">학습 기록 보기 →</a></div>
     </div>
   </div>
 </div>
@@ -233,6 +232,12 @@ cat > engineer.html << 'HTML_EOF'
     <h1>홍기수</h1>
     <p class="subtitle">Security Infrastructure Engineer</p>
     <p class="desc">가디언즈 정보보호 인프라 교육 수료 및 네트워크관리사 2급 지식을 바탕으로 IT 인프라 아키텍처를 설계하는 보안 인프라 엔지니어입니다. 탄탄한 망 분리 설계부터 시스템 서버(Linux/Windows) 운영까지, 어떠한 장애에도 흔들리지 않는 튼튼한 뼈대를 구축하는 것을 목표로 합니다.</p>
+    
+    <!-- 💡 국비 수료증 버튼을 가장 눈에 띄는 맨 위에 추가! -->
+    <div style="margin-top: 25px;">
+      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 가디언즈 국비 교육 공식 수료증 확인하기 →</a>
+    </div>
+
   </div>
 </div>
 <div class="container">
@@ -356,7 +361,7 @@ rm -f tmp_*.txt
 
 for file in *.md; do
     if [ "$file" = "README.md" ] || [ "$file" = "*.md" ]; then continue; fi
-    if [[ "$file" == tmp_* ]]; then continue; fi 
+    if [[ "$file" == tmp_* ]]; then continue; fi
     name_no_ext="${file%.md}"
     link_href="${name_no_ext}.html"
     if [[ $name_no_ext =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)$ ]]; then
