@@ -51,9 +51,9 @@ cat > index.html << 'HTML_EOF'
     <p class="subtitle">Network Security Monitoring Engineer</p>
     <p class="desc">가디언즈 정보보호 인프라 교육 과정을 성공적으로 수료하며 침입 탐지와 로그 분석 실무를 완성한 네트워크 관제 엔지니어입니다. 쏟아지는 트래픽 속에서 비정상 패킷의 흐름을 읽어내고, 근본 원인을 규명할 때까지 끝까지 파고드는 끈기를 강점으로 삼고 있습니다.</p>
     
-    <!-- 💡 국비 수료증 버튼을 가장 눈에 띄는 맨 위에 추가! -->
+    <!-- 💡 수정된 수료증 버튼 텍스트 -->
     <div style="margin-top: 25px;">
-      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 가디언즈 국비 교육 공식 수료증 확인하기 →</a>
+      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 이스트캠프 가디언즈 수료증 확인하기 →</a>
     </div>
 
   </div>
@@ -233,9 +233,9 @@ cat > engineer.html << 'HTML_EOF'
     <p class="subtitle">Security Infrastructure Engineer</p>
     <p class="desc">가디언즈 정보보호 인프라 교육 수료 및 네트워크관리사 2급 지식을 바탕으로 IT 인프라 아키텍처를 설계하는 보안 인프라 엔지니어입니다. 탄탄한 망 분리 설계부터 시스템 서버(Linux/Windows) 운영까지, 어떠한 장애에도 흔들리지 않는 튼튼한 뼈대를 구축하는 것을 목표로 합니다.</p>
     
-    <!-- 💡 국비 수료증 버튼을 가장 눈에 띄는 맨 위에 추가! -->
+    <!-- 💡 수정된 수료증 버튼 텍스트 -->
     <div style="margin-top: 25px;">
-      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 가디언즈 국비 교육 공식 수료증 확인하기 →</a>
+      <a href="홍기수.pdf" target="_blank" class="btn-custom" style="background:#0f172a; color:#ffffff; border-color:#0f172a; font-size: 1rem; padding: 10px 20px;">🎓 이스트캠프 가디언즈 수료증 확인하기 →</a>
     </div>
 
   </div>
